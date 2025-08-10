@@ -327,20 +327,20 @@ function Footer() {
 
 function InvestorLoginModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [password, setPassword] = useState("");
-  const envPwd =
-  (typeof import !== "undefined" &&
-    typeof import.meta !== "undefined" &&
-    (import.meta as any)?.env?.VITE_PORTAL_PASSWORD) as string | undefined;
-// Read Vite env var without fighting TS on ImportMeta typing
-// @ts-ignore
-const valid = password === (((import.meta as any).env?.VITE_PORTAL_PASSWORD as string) ?? "Ollila");
+
+  // Read Vite env var without fighting TS on ImportMeta typing
+  // @ts-ignore
+  const valid = password === (((import.meta as any).env?.VITE_PORTAL_PASSWORD as string) ?? "Ollila");
 
   if (!open) return null;
+
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4">
       <div className="w-full max-w-md rounded-3xl border border-neutral-800 bg-neutral-900 p-6 shadow-2xl">
         <div className="flex items-center gap-3 mb-4"><Lock size={18} /><h3 className="text-lg font-semibold">Investor Portal</h3></div>
-        <p className="text-sm text-neutral-400 mb-4">Enter your access password to view documents. For access, contact <span className="text-neutral-200">investor@exalted.capital</span>.</p>
+        <p className="text-sm text-neutral-400 mb-4">
+          Enter your access password to view documents. For access, contact <span className="text-neutral-200">investor@exalted.capital</span>.
+        </p>
         <Input type="password" placeholder="Password" value={password} onChange={(e:any)=>setPassword(e.target.value)} />
         <div className="flex items-center justify-between gap-3 mt-4">
           <Button onClick={onClose} className="border border-neutral-700 bg-neutral-900 text-neutral-100 hover:bg-neutral-800">Close</Button>
@@ -348,9 +348,10 @@ const valid = password === (((import.meta as any).env?.VITE_PORTAL_PASSWORD as s
             <a href="/portal" aria-disabled={!valid}>Enter Portal</a>
           </Button>
         </div>
-        <p className="mt-3 text-xs text-neutral-500">Tip: Set <code>VITE_PORTAL_PASSWORD</code> in Cloudflare Pages → Settings → Environment Variables.</p>
+        <p className="mt-3 text-xs text-neutral-500">
+          Tip: Set <code>VITE_PORTAL_PASSWORD</code> in Cloudflare Pages → Settings → Environment Variables.
+        </p>
       </div>
     </div>
   );
 }
-
