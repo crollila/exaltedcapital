@@ -327,7 +327,11 @@ function Footer() {
 
 function InvestorLoginModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [password, setPassword] = useState("");
-  const valid = password === (import.meta?.env?.VITE_PORTAL_PASSWORD || "Ollila");
+  const envPwd =
+  (typeof import !== "undefined" &&
+    typeof import.meta !== "undefined" &&
+    (import.meta as any)?.env?.VITE_PORTAL_PASSWORD) as string | undefined;
+const valid = password === (envPwd ?? "Ollila");
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4">
@@ -346,3 +350,4 @@ function InvestorLoginModal({ open, onClose }: { open: boolean; onClose: () => v
     </div>
   );
 }
+
