@@ -331,7 +331,10 @@ function InvestorLoginModal({ open, onClose }: { open: boolean; onClose: () => v
   (typeof import !== "undefined" &&
     typeof import.meta !== "undefined" &&
     (import.meta as any)?.env?.VITE_PORTAL_PASSWORD) as string | undefined;
-const valid = password === (envPwd ?? "Ollila");
+// Read Vite env var without fighting TS on ImportMeta typing
+// @ts-ignore
+const valid = password === (((import.meta as any).env?.VITE_PORTAL_PASSWORD as string) ?? "Ollila");
+
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4">
