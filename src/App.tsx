@@ -168,14 +168,15 @@ function Hero() {
 
 function Statbar() {
   const stats = [
-    { n: "30.4M", label: "lifetime video views" },
     { n: "243K", label: "subscribers, built solo" },
+    { n: "30.4M", label: "lifetime video views" },
+    { n: "6", label: "videos past 1M views" },
     { n: "27 mo", label: "independent quant development" },
     { n: "500+", label: "people led across teams" },
   ];
   return (
     <div className="border-y border-neutral-800/60 bg-neutral-900/20">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 px-4 md:grid-cols-4 md:px-6">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 px-4 md:grid-cols-3 md:px-6 lg:grid-cols-5">
         {stats.map((s) => (
           <div key={s.label} className="py-8">
             <div className="text-3xl font-semibold tracking-tight md:text-4xl">{s.n}</div>
@@ -386,6 +387,7 @@ function Experience() {
           when="2013 - 2022"
           points={[
             "Built a Fortnite education channel to 243,000 subscribers and 30.4 million lifetime views, writing, filming, and editing 205 videos solo.",
+            "Six videos passed a million views, with the top two reaching 2.9 million each, in a category where the audience is other competitive players and the bar for being taken seriously is high.",
             "Ran the entire operation: content strategy, thumbnail and title testing, retention analysis, SEO, and community management, and negotiated sponsorships with brands including Red Bull.",
             "Earned an Epic Games creator code, and grew connected Discord, Twitch, Instagram, and TikTok audiences alongside the channel.",
             "Left school during COVID to pursue this full time, then chose to come back, a decision I can explain clearly and would make the same way again.",
