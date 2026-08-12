@@ -205,6 +205,16 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    title: "Multifractal Time-GPT",
+    blurb:
+      "Volatility-regime conditioning for news-driven trading: Markov-Switching Multifractal regime detection with Hamilton filtering, fused with LLM news sentiment via empirical-Bayes shrinkage of per-regime betas. On synthetic validation, the edge came from the trades the model refused to take, and a flat-response control confirmed it finds no edge where none exists.",
+    highlight: "80 tests; regime service answers in under a millisecond",
+    since: "Since Jul 2026",
+    stack: ["Python", "MSM", "FastAPI", "TimeGPT"],
+    href: "https://github.com/crollila/Multifractal-Time-GPT",
+    icon: <Activity size={18} />,
+  },
+  {
     title: "Implied Volatility Surface with SVI",
     blurb:
       "Builds an implied volatility surface from live equity-index options, calibrating raw SVI per expiry slice with full static-arbitrage diagnostics. Black-Scholes, the implied-vol inversion, and the SVI fit are all written from scratch rather than pulled from a library.",
@@ -309,7 +319,7 @@ function Work() {
       id="work"
       eyebrow="Selected work"
       title="Quantitative projects"
-      lede="Ten public repositories drawn from roughly 27 months of building trading systems on my own, starting May 2024. This is independent research and paper trading, not a funded desk, and I would rather say that plainly than let anyone assume otherwise. The repositories went up together, so their commit dates understate how long the underlying work actually ran. I picked the hard version on purpose: implementing Black-Scholes, the implied-vol inversion, and the SVI fit by hand teaches far more than importing them."
+      lede="Eleven public repositories drawn from roughly 27 months of building trading systems on my own, starting May 2024. This is independent research and paper trading, not a funded desk, and I would rather say that plainly than let anyone assume otherwise. The repositories went up together, so their commit dates understate how long the underlying work actually ran. I picked the hard version on purpose: implementing Black-Scholes, the implied-vol inversion, and the SVI fit by hand teaches far more than importing them."
     >
       <div className="grid gap-5 md:grid-cols-2">
         {PROJECTS.map((p) => <ProjectCard key={p.title} {...p} />)}
