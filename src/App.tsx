@@ -206,6 +206,7 @@ const PROJECTS: Project[] = [
     blurb:
       "Builds an implied volatility surface from live equity-index options, calibrating raw SVI per expiry slice with full static-arbitrage diagnostics. Black-Scholes, the implied-vol inversion, and the SVI fit are all written from scratch rather than pulled from a library.",
     highlight: "Median fit error of 15 vol bps on SPY",
+    since: "Since Jun 2026",
     stack: ["Python", "NumPy", "SciPy"],
     href: "https://github.com/crollila/implied-vol-surface-svi",
     icon: <Activity size={18} />,
@@ -215,6 +216,7 @@ const PROJECTS: Project[] = [
     blurb:
       "European, Asian, and knock-out barrier options priced in idiomatic vectorized q, where no loop ever touches a path. Validated against closed-form Black-Scholes, with antithetic variance reduction and a convergence and throughput study.",
     highlight: "Written in kdb+, the stack most trading desks actually run on",
+    since: "Since Apr 2026",
     stack: ["q / kdb+", "Monte Carlo"],
     href: "https://github.com/crollila/kdb-monte-carlo-option-pricer",
     icon: <Terminal size={18} />,
@@ -224,6 +226,7 @@ const PROJECTS: Project[] = [
     blurb:
       "Backtests hedging an option position across 16 years of SPY data, comparing delta-only against delta-gamma hedging through real volatility regimes. Black-Scholes and the full hedging engine implemented from scratch in R.",
     highlight: "16 years of daily data",
+    since: "Since May 2026",
     stack: ["R", "Black-Scholes"],
     href: "https://github.com/crollila/delta-gamma-hedging-backtest",
     icon: <LineChart size={18} />,
@@ -233,6 +236,7 @@ const PROJECTS: Project[] = [
     blurb:
       "An end-to-end research question: are prediction markets better calibrated than sportsbooks? Includes a live collection daemon, historical backfill, settlement reconciliation, and calibration analysis with event-clustered inference.",
     highlight: "89,000 price snapshots across 351 MLB games",
+    since: "Since Mar 2026",
     stack: ["Python", "DuckDB", "Statistics"],
     href: "https://github.com/crollila/pm-calibration",
     icon: <Boxes size={18} />,
@@ -251,6 +255,7 @@ const PROJECTS: Project[] = [
     title: "Option Pricing Model Comparison",
     blurb:
       "European and American option pricing implemented three ways, Black-Scholes, CRR binomial trees, and Monte Carlo, then cross-validated against each other and benchmarked against live market quotes. Written in OCaml to make the type system carry the math.",
+    since: "Since Mar 2026",
     stack: ["OCaml", "Numerical methods"],
     href: "https://github.com/crollila/option-pricing-model-comparison",
     icon: <Boxes size={18} />,
