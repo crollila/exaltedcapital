@@ -571,8 +571,15 @@ function Beyond() {
                 discipline exercise, but it is the reason risk management feels intuitive to me rather than academic.
               </p>
               <p className="mt-3">
-                I ran the Bolder Boulder 10K at age eleven, and have run it each of the last three years, improving
-                every time. I ran a half marathon in 1:55 in January, and I am training for an Ironman.
+                I ran the Bolder Boulder 10K at age eleven and still run it; this May I went 56:39. The twelve months
+                behind that are logged: 241 sessions, 150 hours, 623 miles of running. A first sub-hour 10K in October
+                2025, the Houston Half Marathon in 1:58 in January, a 77-mile peak month in November.
+              </p>
+              <p className="mt-3">
+                I rode a bike for the first time on May 27 and swam my first open water in August. At least 160 miles
+                on the bike since, the longest 40 at 17.3 mph, alongside 2,000-meter pool sessions. The Ironman is the
+                point of it, but the part I would actually defend is the log itself: a year of small, boring, measured
+                additions that only look like progress in aggregate.
               </p>
             </>
           }
