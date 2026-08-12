@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   ArrowUpRight, Mail, Github, Linkedin, Youtube, MapPin,
   LineChart, Boxes, Activity, Users, Trophy, HeartPulse,
-  GraduationCap, Briefcase, Terminal,
+  GraduationCap, Briefcase, Terminal, FileText,
 } from "lucide-react";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
@@ -14,6 +14,7 @@ const LINKS = {
   github: "https://github.com/crollila",
   linkedin: "https://www.linkedin.com/in/caseollila/",
   youtube: "https://www.youtube.com/@ExaltedFortnite",
+  resume: "/Case_Ollila_Resume.pdf",
 };
 
 export default function App() {
@@ -42,6 +43,7 @@ function Header() {
     { label: "Experience", href: "#experience" },
     { label: "Education", href: "#education" },
     { label: "Beyond the resume", href: "#beyond" },
+    { label: "Resume", href: LINKS.resume },
     { label: "Contact", href: "#contact" },
   ];
   return (
@@ -143,7 +145,7 @@ function Hero() {
           </motion.h1>
 
           <motion.p variants={fadeUp} className="max-w-3xl text-xl leading-relaxed text-neutral-300 md:text-2xl">
-            Finance student who builds the tools instead of waiting for them. Options pricing in{" "}
+            Finance graduate who builds the tools instead of waiting for them. Options pricing in{" "}
             <Mono>q/kdb+</Mono>, volatility surfaces in <Mono>Python</Mono>, hedging backtests in <Mono>R</Mono>
             {" "}&mdash; and, before any of that, a 243,000-subscriber channel and a world-ranked competitive team.
           </motion.p>
@@ -155,6 +157,7 @@ function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2">
+            <Pill href={LINKS.resume} icon={<FileText size={15} />}>Resume</Pill>
             <Pill href={LINKS.email} icon={<Mail size={15} />}>crollila@gmail.com</Pill>
             <Pill href={LINKS.github} icon={<Github size={15} />}>GitHub</Pill>
             <Pill href={LINKS.linkedin} icon={<Linkedin size={15} />}>LinkedIn</Pill>
@@ -643,6 +646,7 @@ function Contact() {
             >
               <Mail size={17} /> crollila@gmail.com
             </a>
+            <Pill href={LINKS.resume} icon={<FileText size={15} />}>Resume</Pill>
             <Pill href={LINKS.linkedin} icon={<Linkedin size={15} />}>LinkedIn</Pill>
             <Pill href={LINKS.github} icon={<Github size={15} />}>GitHub</Pill>
           </motion.div>
