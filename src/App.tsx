@@ -463,7 +463,7 @@ function Education() {
             <div>
               <h3 className="text-lg font-medium">B.S. Business Administration, Concentration in Finance</h3>
               <p className="text-sm text-neutral-400">
-                Previously biology and pre-med at Oregon State; Associate of Science, Front Range Community College
+                Previously biology and pre-med at Ohio State; Associate of Science, Front Range Community College
               </p>
             </div>
           </div>
