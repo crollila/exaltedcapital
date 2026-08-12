@@ -137,7 +137,7 @@ function Hero() {
       <div className="mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-32">
         <motion.div initial="hidden" animate="show" variants={stagger} className="grid gap-7">
           <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-neutral-500">
-            <MapPin size={14} /> Boulder, Colorado
+            <MapPin size={14} /> New York, NY
           </motion.div>
 
           <motion.h1 variants={fadeUp} className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
