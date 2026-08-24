@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   ArrowUpRight, Mail, Github, Linkedin, Youtube, MapPin,
   LineChart, Boxes, Activity, Users, Trophy, HeartPulse,
-  GraduationCap, Briefcase, Terminal, FileText,
+  GraduationCap, Briefcase, Terminal, FileText, Radio,
 } from "lucide-react";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
@@ -15,6 +15,7 @@ const LINKS = {
   linkedin: "https://www.linkedin.com/in/caseollila/",
   youtube: "https://www.youtube.com/@ExaltedFortnite",
   resume: "/Case_Ollila_Resume.pdf",
+  sanctum: "https://sanctum.exaltedcapital.com/public-floor",
 };
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
 
 function Header() {
   const nav = [
+    { label: "Sanctum Floor", href: LINKS.sanctum },
     { label: "Work", href: "#work" },
     { label: "Experience", href: "#experience" },
     { label: "Education", href: "#education" },
@@ -157,6 +159,7 @@ function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2">
+            <Pill href={LINKS.sanctum} icon={<Radio size={15} />}>Sanctum Floor — live</Pill>
             <Pill href={LINKS.resume} icon={<FileText size={15} />}>Resume</Pill>
             <Pill href={LINKS.email} icon={<Mail size={15} />}>crollila@gmail.com</Pill>
             <Pill href={LINKS.github} icon={<Github size={15} />}>GitHub</Pill>
@@ -204,6 +207,16 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
+  {
+    title: "Sanctum — Live AI Research Floor",
+    blurb:
+      "Watch an autonomous AI research system work in real time. Sanctum generates its own trading hypotheses, attacks them in adversarial debate, and puts survivors through a ten-stage deterministic validation gauntlet before they may trade simulated money — all rendered as an animated research office you can explore. Live, read-only, and open to anyone: no login required.",
+    highlight: "Live now — real research activity, simulated money only",
+    since: "Since Aug 2026",
+    stack: ["Python", "FastAPI", "Postgres", "React", "LLM agents"],
+    href: LINKS.sanctum,
+    icon: <Radio size={18} />,
+  },
   {
     title: "Multifractal Time-GPT",
     blurb:
