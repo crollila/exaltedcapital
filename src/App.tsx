@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   ArrowUpRight, Mail, Github, Linkedin, Youtube, MapPin,
   LineChart, Boxes, Activity, Users, Trophy, HeartPulse,
-  GraduationCap, Briefcase, Terminal, FileText, Radio,
+  GraduationCap, Briefcase, Terminal, FileText, Radio, Filter,
 } from "lucide-react";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
@@ -218,6 +218,26 @@ const PROJECTS: Project[] = [
     icon: <Radio size={18} />,
   },
   {
+    title: "Regime Lab — Regime Detection, Evaluated Honestly",
+    blurb:
+      "Four market-regime models run through an evaluation harness built specifically to stop them cheating: strictly causal filtering, prefix property tests that fail if appending future data changes a past estimate, and a crisis-event list committed to git before any experiment ran. The headline finding is about the field, not the model — identical trading logic scores far better the moment you let it peek, and against a leverage-matched volatility-targeting control the median incremental Sharpe across every model and allocation rule is about zero.",
+    highlight: "Same logic, 0.44 Sharpe causal against 1.39 with lookahead",
+    since: "Since Aug 2026",
+    stack: ["Python", "HMM", "Jump models", "BOCPD", "Walk-forward"],
+    href: "https://github.com/crollila/regimelab",
+    icon: <Activity size={18} />,
+  },
+  {
+    title: "Strategy Survival Funnel",
+    blurb:
+      "Backtests 318 configurations of 47 popular retail trading strategies across 29 assets and 15 years of daily data, then pushes all 9,222 results through walk-forward validation, six survival filters, parameter-sensitivity surfaces, and a bootstrap stress test. Half of the backtests showed a positive out-of-sample Sharpe, which is exactly what a coin flip would produce. The project is the machinery that tells the difference.",
+    highlight: "9,222 backtests in, 67 out — a 0.73% survival rate",
+    since: "Since Aug 2026",
+    stack: ["Python", "Walk-forward", "Bootstrap"],
+    href: "https://github.com/crollila/strategy-survival-funnel",
+    icon: <Filter size={18} />,
+  },
+  {
     title: "Multifractal Time-GPT",
     blurb:
       "Volatility-regime conditioning for news-driven trading: Markov-Switching Multifractal regime detection with Hamilton filtering, fused with LLM news sentiment via empirical-Bayes shrinkage of per-regime betas. On synthetic validation, the edge came from the trades the model refused to take, and a flat-response control confirmed it finds no edge where none exists.",
@@ -332,7 +352,7 @@ function Work() {
       id="work"
       eyebrow="Selected work"
       title="Quantitative projects"
-      lede="Eleven public repositories drawn from roughly 27 months of building trading systems on my own, starting May 2024. This is independent research and paper trading, not a funded desk, and I would rather say that plainly than let anyone assume otherwise. The repositories went up together, so their commit dates understate how long the underlying work actually ran. I picked the hard version on purpose: implementing Black-Scholes, the implied-vol inversion, and the SVI fit by hand teaches far more than importing them."
+      lede="Thirteen public repositories drawn from roughly 27 months of building trading systems on my own, starting May 2024. This is independent research and paper trading, not a funded desk, and I would rather say that plainly than let anyone assume otherwise. The repositories went up together, so their commit dates understate how long the underlying work actually ran. I picked the hard version on purpose: implementing Black-Scholes, the implied-vol inversion, and the SVI fit by hand teaches far more than importing them. The two newest repositories push on the part that matters more than any model: whether a result is real at all, and reporting it honestly when it is not."
     >
       <div className="grid gap-5 md:grid-cols-2">
         {PROJECTS.map((p) => <ProjectCard key={p.title} {...p} />)}
