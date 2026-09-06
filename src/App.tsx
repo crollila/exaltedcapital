@@ -25,6 +25,7 @@ export default function App() {
       <main>
         <Hero />
         <Statbar />
+        <PlanShiftDownload />
         <Work />
         <Experience />
         <Education />
@@ -36,12 +37,52 @@ export default function App() {
   );
 }
 
+function PlanShiftDownload() {
+  const release = "https://github.com/crollila/planshift-releases/releases/download/v0.7.4";
+  return (
+    <section id="planshift" aria-labelledby="planshift-title" className="scroll-mt-24 border-y border-neutral-800/60">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+        <div>
+          <p className="text-sm font-medium uppercase tracking-widest text-neutral-400">Windows desktop app · Version 0.7.4</p>
+          <h2 id="planshift-title" className="mt-3 text-3xl font-semibold tracking-tight">PlanShift</h2>
+          <p className="mt-4 text-base leading-relaxed text-neutral-300">
+            Review public workforce notices, research retirement plans, and organize potential
+            contacts in one place. Keep your tracker on your computer and export approved contacts to Excel.
+          </p>
+          <a href={`${release}/PlanShift-Setup-0.7.4.exe`}
+            className="mt-6 inline-flex min-h-12 items-center rounded-full bg-neutral-100 px-6 py-3 text-base font-semibold text-neutral-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            Download PlanShift for Windows
+          </a>
+          <p className="mt-3 text-sm text-neutral-400">No Python installation needed. Existing records are kept when upgrading.</p>
+          <p className="mt-3 text-sm text-neutral-400">
+            <a className="underline underline-offset-4 hover:text-white" href="https://github.com/crollila/planshift-releases/releases/tag/v0.7.4">What changed</a>
+            {" · "}<a className="underline underline-offset-4 hover:text-white" href={`${release}/SHA256SUMS.txt`}>Download checksum</a>
+          </p>
+        </div>
+        <div className="rounded-2xl border border-neutral-700 bg-neutral-900/60 p-6">
+          <h3 className="text-lg font-semibold">Your first five minutes</h3>
+          <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-relaxed text-neutral-300">
+            <li><strong className="text-neutral-100">Install.</strong> Open the downloaded installer, follow the prompts, then launch PlanShift.</li>
+            <li><strong className="text-neutral-100">Try the demo.</strong> Choose Try Demo Mode to explore sample data without connecting accounts.</li>
+            <li><strong className="text-neutral-100">Start your tracker.</strong> For real data, complete setup and select Fetch new data on Home. Optional services can be connected later in Settings.</li>
+          </ol>
+          <p className="mt-5 border-t border-neutral-700 pt-4 text-sm leading-relaxed text-neutral-400">
+            Contact research requires a separate provider account and may incur charges.
+            Every contact requires your review. PlanShift never contacts anyone automatically.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------------------------- chrome --------------------------------- */
 
 function Header() {
   const nav = [
     { label: "Sanctum Floor", href: LINKS.sanctum },
     { label: "Work", href: "#work" },
+    { label: "PlanShift", href: "#planshift" },
     { label: "Experience", href: "#experience" },
     { label: "Education", href: "#education" },
     { label: "Beyond the resume", href: "#beyond" },
@@ -160,6 +201,7 @@ function Hero() {
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2">
             <Pill href={LINKS.sanctum} icon={<Radio size={15} />}>Sanctum Floor — live</Pill>
+            <Pill href="#planshift" icon={<Boxes size={15} />}>Download PlanShift</Pill>
             <Pill href={LINKS.resume} icon={<FileText size={15} />}>Resume</Pill>
             <Pill href={LINKS.email} icon={<Mail size={15} />}>crollila@gmail.com</Pill>
             <Pill href={LINKS.github} icon={<Github size={15} />}>GitHub</Pill>
