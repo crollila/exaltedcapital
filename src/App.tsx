@@ -25,7 +25,6 @@ export default function App() {
       <main>
         <Hero />
         <Statbar />
-        <PlanShiftDownload />
         <Work />
         <Experience />
         <Education />
