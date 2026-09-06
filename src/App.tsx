@@ -31,6 +31,7 @@ export default function App() {
         <Education />
         <Beyond />
         <Contact />
+        <PlanShiftDownload />
       </main>
       <Footer />
     </div>
