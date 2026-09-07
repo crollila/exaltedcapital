@@ -1,13 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
 import {
-  ArrowUpRight, Mail, Github, Linkedin, Youtube, MapPin,
+  ArrowUpRight, Mail, Github, Linkedin, Youtube,
   LineChart, Boxes, Activity, Users, Trophy, HeartPulse,
   GraduationCap, Briefcase, Terminal, FileText, Radio, Filter,
 } from "lucide-react";
 
-const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
-const stagger = { show: { transition: { staggerChildren: 0.09 } } };
 
 const LINKS = {
   email: "mailto:crollila@gmail.com",
@@ -20,17 +17,17 @@ const LINKS = {
 
 export default function App() {
   return (
-    <div className="min-h-screen w-full bg-neutral-950 text-neutral-100 selection:bg-neutral-200 selection:text-neutral-900">
+    <div className="min-h-screen w-full bg-white text-neutral-900 selection:bg-neutral-200 selection:text-neutral-900">
+      <a href="#main" className="skip-link">Skip to content</a>
       <Header />
-      <main>
+      <main id="main">
         <Hero />
-        <Statbar />
         <Work />
         <Experience />
         <Education />
         <Beyond />
-        <Contact />
         <PlanShiftDownload />
+        <Contact />
       </main>
       <Footer />
     </div>
@@ -40,33 +37,33 @@ export default function App() {
 function PlanShiftDownload() {
   const release = "https://github.com/crollila/planshift-releases/releases/download/v0.7.4";
   return (
-    <section id="planshift" aria-labelledby="planshift-title" className="scroll-mt-24 border-y border-neutral-800/60">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+    <section id="planshift" aria-labelledby="planshift-title" className="scroll-mt-24 border-y border-neutral-200">
+      <div className="mx-auto grid max-w-5xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
         <div>
-          <p className="text-sm font-medium uppercase tracking-widest text-neutral-400">Windows desktop app · Version 0.7.4</p>
+          <p className="text-sm font-medium uppercase tracking-widest text-neutral-600">Windows desktop app · Version 0.7.4</p>
           <h2 id="planshift-title" className="mt-3 text-3xl font-semibold tracking-tight">PlanShift</h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-300">
+          <p className="mt-4 text-base leading-relaxed text-neutral-700">
             Review public workforce notices, research retirement plans, and organize potential
             contacts in one place. Keep your tracker on your computer and export approved contacts to Excel.
           </p>
           <a href={`${release}/PlanShift-Setup-0.7.4.exe`}
-            className="mt-6 inline-flex min-h-12 items-center rounded-full bg-neutral-100 px-6 py-3 text-base font-semibold text-neutral-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            className="mt-6 inline-flex min-h-12 items-center rounded-sm bg-neutral-100 px-6 py-3 text-base font-semibold text-neutral-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             Download PlanShift for Windows
           </a>
-          <p className="mt-3 text-sm text-neutral-400">No Python installation needed. Existing records are kept when upgrading.</p>
-          <p className="mt-3 text-sm text-neutral-400">
-            <a className="underline underline-offset-4 hover:text-white" href="https://github.com/crollila/planshift-releases/releases/tag/v0.7.4">What changed</a>
-            {" · "}<a className="underline underline-offset-4 hover:text-white" href={`${release}/SHA256SUMS.txt`}>Download checksum</a>
+          <p className="mt-3 text-sm text-neutral-600">No Python installation needed. Existing records are kept when upgrading.</p>
+          <p className="mt-3 text-sm text-neutral-600">
+            <a className="underline underline-offset-4 hover:text-black" href="https://github.com/crollila/planshift-releases/releases/tag/v0.7.4">What changed</a>
+            {" · "}<a className="underline underline-offset-4 hover:text-black" href={`${release}/SHA256SUMS.txt`}>Download checksum</a>
           </p>
         </div>
-        <div className="rounded-2xl border border-neutral-700 bg-neutral-900/60 p-6">
+        <div className="rounded-none border border-neutral-200 bg-white p-6">
           <h3 className="text-lg font-semibold">Your first five minutes</h3>
-          <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-relaxed text-neutral-300">
-            <li><strong className="text-neutral-100">Install.</strong> Open the downloaded installer, follow the prompts, then launch PlanShift.</li>
-            <li><strong className="text-neutral-100">Try the demo.</strong> Choose Try Demo Mode to explore sample data without connecting accounts.</li>
-            <li><strong className="text-neutral-100">Start your tracker.</strong> For real data, complete setup and select Fetch new data on Home. Optional services can be connected later in Settings.</li>
+          <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-relaxed text-neutral-700">
+            <li><strong className="text-neutral-900">Install.</strong> Open the downloaded installer, follow the prompts, then launch PlanShift.</li>
+            <li><strong className="text-neutral-900">Try the demo.</strong> Choose Try Demo Mode to explore sample data without connecting accounts.</li>
+            <li><strong className="text-neutral-900">Start your tracker.</strong> For real data, complete setup and select Fetch new data on Home. Optional services can be connected later in Settings.</li>
           </ol>
-          <p className="mt-5 border-t border-neutral-700 pt-4 text-sm leading-relaxed text-neutral-400">
+          <p className="mt-5 border-t border-neutral-200 pt-4 text-sm leading-relaxed text-neutral-600">
             Contact research requires a separate provider account and may incur charges.
             Every contact requires your review. PlanShift never contacts anyone automatically.
           </p>
@@ -79,51 +76,30 @@ function PlanShiftDownload() {
 /* ---------------------------------- chrome --------------------------------- */
 
 function Header() {
-  const nav = [
-    { label: "Sanctum Floor", href: LINKS.sanctum },
-    { label: "Work", href: "#work" },
-    { label: "PlanShift", href: "#planshift" },
-    { label: "Experience", href: "#experience" },
-    { label: "Education", href: "#education" },
-    { label: "Beyond the resume", href: "#beyond" },
-    { label: "Resume", href: LINKS.resume },
-    { label: "Contact", href: "#contact" },
-  ];
+  const [open, setOpen] = useState(false);
+  const nav = [{ label: "Projects", href: "#work" }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-800/60 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
-        <a href="#top" className="flex items-baseline gap-3">
-          <span className="text-sm font-semibold tracking-[0.3em]">EXALTED</span>
-          <span className="hidden text-sm text-neutral-500 sm:inline">Case Ollila</span>
-        </a>
-        <nav className="hidden items-center gap-6 text-sm lg:flex">
-          {nav.map((n) => (
-            <a key={n.href} href={n.href} className="text-neutral-400 transition-colors hover:text-neutral-100">
-              {n.label}
-            </a>
-          ))}
-        </nav>
-        <a
-          href={LINKS.email}
-          className="rounded-full bg-neutral-100 px-4 py-1.5 text-sm font-medium text-neutral-900 transition hover:bg-white"
-        >
-          Get in touch
-        </a>
+    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white backdrop-blur">
+      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4 md:px-6">
+        <a href="#top" className="flex items-center gap-3" aria-label="Case Ollila home"><span className="text-sm font-medium">Case Ollila<span className="mt-0.5 block text-xs font-normal text-neutral-600">Finance &amp; quantitative research</span></span></a>
+        <nav aria-label="Main navigation" className="hidden items-center gap-7 text-sm md:flex">{nav.map(n => <a key={n.href} href={n.href} className="text-neutral-700 hover:text-black">{n.label}</a>)}<a href="#contact" className="contact-link">Contact</a></nav>
+        <button type="button" className="rounded-lg border border-neutral-200 px-3 py-2 text-sm md:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>{open ? "Close" : "Menu"}</button>
       </div>
+      {open && <nav id="mobile-nav" aria-label="Mobile navigation" className="grid gap-1 border-t border-neutral-200 px-4 pb-4 md:hidden">{[...nav, {label: "Contact", href: "#contact"}].map(n => <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-sm text-neutral-800 hover:bg-white">{n.label}</a>)}</nav>}
     </header>
   );
 }
 
 function Footer() {
   return (
-    <footer className="border-t border-neutral-800/60">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between md:px-6">
-        <span>&copy; {new Date().getFullYear()} Case Ollila &middot; Boulder, Colorado</span>
+    <footer className="border-t border-neutral-200">
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-10 text-sm text-neutral-600 md:flex-row md:items-center md:justify-between md:px-6">
+        <span>&copy; {new Date().getFullYear()} Case Ollila &middot; Finance, research &amp; software</span>
         <div className="flex flex-wrap gap-5">
-          <a className="transition-colors hover:text-neutral-200" href={LINKS.github}>GitHub</a>
-          <a className="transition-colors hover:text-neutral-200" href={LINKS.linkedin}>LinkedIn</a>
-          <a className="transition-colors hover:text-neutral-200" href={LINKS.youtube}>YouTube</a>
-          <a className="transition-colors hover:text-neutral-200" href={LINKS.email}>Email</a>
+          <a className="transition-colors hover:text-neutral-800" href={LINKS.github}>GitHub</a>
+          <a className="transition-colors hover:text-neutral-800" href={LINKS.linkedin}>LinkedIn</a>
+          <a className="transition-colors hover:text-neutral-800" href={LINKS.youtube}>YouTube</a>
+          <a className="transition-colors hover:text-neutral-800" href={LINKS.email}>Email</a>
         </div>
       </div>
     </footer>
@@ -134,34 +110,30 @@ function Section({ id, eyebrow, title, lede, children }: {
   id: string; eyebrow: string; title: string; lede?: string; children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-24">
-      <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-        <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
+    <section id={id} className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-14">
+      <div>
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-neutral-600">
           {eyebrow}
-        </motion.p>
-        <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+        </p>
+        <h2 className="mt-3 text-2xl font-semibold tracking-tight">
           {title}
-        </motion.h2>
+        </h2>
         {lede && (
-          <motion.p variants={fadeUp} className="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-400">
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-600">
             {lede}
-          </motion.p>
+          </p>
         )}
-        <motion.div variants={fadeUp} className="mt-12">{children}</motion.div>
-      </motion.div>
+        <div className="mt-7">{children}</div>
+      </div>
     </section>
   );
-}
-
-function Mono({ children }: { children: React.ReactNode }) {
-  return <span className="rounded bg-neutral-900 px-1.5 py-0.5 font-mono text-[0.9em] text-neutral-200">{children}</span>;
 }
 
 function Pill({ href, icon, children }: { href: string; icon: React.ReactNode; children: React.ReactNode }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900/60 px-4 py-2 text-sm text-neutral-300 transition hover:border-neutral-600 hover:text-neutral-100"
+      className="inline-flex items-center gap-2 rounded-sm border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-700 transition hover:border-neutral-600 hover:text-neutral-900"
     >
       {icon}{children}
     </a>
@@ -172,73 +144,22 @@ function Pill({ href, icon, children }: { href: string; icon: React.ReactNode; c
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-neutral-700/20 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-neutral-500/10 blur-3xl" />
-      </div>
-      <div className="mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-32">
-        <motion.div initial="hidden" animate="show" variants={stagger} className="grid gap-7">
-          <motion.div variants={fadeUp} className="flex items-center gap-2 text-sm text-neutral-500">
-            <MapPin size={14} /> New York, NY
-          </motion.div>
-
-          <motion.h1 variants={fadeUp} className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
-            Case Ollila
-          </motion.h1>
-
-          <motion.p variants={fadeUp} className="max-w-3xl text-xl leading-relaxed text-neutral-300 md:text-2xl">
-            Finance graduate who builds the tools instead of waiting for them. Options pricing in{" "}
-            <Mono>q/kdb+</Mono>, volatility surfaces in <Mono>Python</Mono>, hedging backtests in <Mono>R</Mono>
-            {" "}&mdash; and, before any of that, a 243,000-subscriber channel and a world-ranked competitive team.
-          </motion.p>
-
-          <motion.p variants={fadeUp} className="max-w-3xl leading-relaxed text-neutral-400">
-            I graduated from Colorado State in August 2026, and I am looking for analyst roles in global markets,
-            sales &amp; trading, or quant-adjacent research. The through-line across everything below is the same:
-            I get obsessive about a system, learn it faster than is reasonable, and then lead other people through it.
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2">
-            <Pill href={LINKS.sanctum} icon={<Radio size={15} />}>Sanctum Floor — live</Pill>
-            <Pill href="#planshift" icon={<Boxes size={15} />}>Download PlanShift</Pill>
-            <Pill href={LINKS.resume} icon={<FileText size={15} />}>Resume</Pill>
-            <Pill href={LINKS.email} icon={<Mail size={15} />}>crollila@gmail.com</Pill>
-            <Pill href={LINKS.github} icon={<Github size={15} />}>GitHub</Pill>
-            <Pill href={LINKS.linkedin} icon={<Linkedin size={15} />}>LinkedIn</Pill>
-            <Pill href={LINKS.youtube} icon={<Youtube size={15} />}>YouTube</Pill>
-          </motion.div>
-        </motion.div>
-      </div>
+    <section id="top" className="intro mx-auto max-w-5xl px-4 md:px-6">
+      <p className="text-sm text-neutral-600">Finance · Quantitative research · Software development</p>
+      <h1>Case Ollila</h1>
+      <p className="intro-summary">Finance graduate from Colorado State University, building financial models, market research systems, and practical software.</p>
+      <p className="mt-4 max-w-3xl leading-relaxed text-neutral-600">My work spans options pricing in q/kdb+, Python research pipelines, hedging backtests in R, and desktop applications. I am seeking analyst opportunities in global markets, sales &amp; trading, equity research, and quantitative research.</p>
+      <div className="intro-links"><a href={LINKS.resume}>Resume</a><a href={LINKS.github}>GitHub</a><a href={LINKS.linkedin}>LinkedIn</a><a href={LINKS.email}>crollila@gmail.com</a></div>
+      <p className="mt-6 text-sm text-neutral-600"><strong className="font-medium text-neutral-800">Technical skills:</strong> Python, Excel, R, q/kdb+, TypeScript, OCaml</p>
     </section>
-  );
-}
-
-function Statbar() {
-  const stats = [
-    { n: "243K", label: "subscribers, built solo" },
-    { n: "30.4M", label: "lifetime video views" },
-    { n: "6", label: "videos past 1M views" },
-    { n: "27 mo", label: "independent quant development" },
-    { n: "500+", label: "people led across teams" },
-  ];
-  return (
-    <div className="border-y border-neutral-800/60 bg-neutral-900/20">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 px-4 md:grid-cols-3 md:px-6 lg:grid-cols-5">
-        {stats.map((s) => (
-          <div key={s.label} className="py-8">
-            <div className="text-3xl font-semibold tracking-tight md:text-4xl">{s.n}</div>
-            <div className="mt-1 text-sm text-neutral-500">{s.label}</div>
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }
 
 /* ----------------------------------- work ---------------------------------- */
 
 type Project = {
+  category?: string;
+  featured?: boolean;
   title: string;
   blurb: string;
   stack: string[];
@@ -250,9 +171,32 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    title: "PlanShift", category: "Applications",
+    blurb: "Developed for KW Capital Advisors / Ameriprise Financial during my private wealth internship. A Windows application that brings together public workforce notices, retirement-plan research, and prospect tracking, with local record storage and Excel exports for advisor review.",
+    highlight: "Built for an advisory workflow · Windows application",
+    stack: ["Workflow automation", "Retirement-plan research", "Excel exports"],
+    href: "#planshift", icon: <Boxes size={18} />,
+  },
+  {
+    title: "Exotic Deal EV Engine",
+    category: "Valuation", featured: true,
+    blurb: "Underwrites a fictional market-making agreement by modeling warrants, KPI vesting, preferred waterfalls, and financing together. A 15-tab Excel model connects scenario analysis to a Python valuation engine, with a research memo explaining the assumptions and negotiation tradeoffs.",
+    highlight: "50,000 simulated paths · Shapley attribution · Synthetic transaction",
+    stack: ["Python", "Excel", "Monte Carlo"],
+    href: "https://github.com/crollila/exotic-deal-ev-engine", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Fantasy Manager",
+    category: "Applications", featured: true,
+    blurb: "A Windows application for fantasy football research and injury-aware lineup decisions. Combines ESPN league integration, local data storage, a React interface, and archived forecasts with visible accuracy tracking. Model probabilities remain experimental.",
+    highlight: "Windows installer · Local data · Forecast evaluation",
+    stack: ["Python", "FastAPI", "React", "SQLite"],
+    href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
+  },
+  {
     title: "Sanctum — Live AI Research Floor",
     blurb:
-      "Watch an autonomous AI research system work in real time. Sanctum generates its own trading hypotheses, attacks them in adversarial debate, and puts survivors through a ten-stage deterministic validation gauntlet before they may trade simulated money — all rendered as an animated research office you can explore. Live, read-only, and open to anyone: no login required.",
+      "An interactive research floor where AI agents generate trading hypotheses, debate them, and run a ten-stage validation pipeline before simulated trading. The public view makes research activity and the evaluation process visible.",
     highlight: "Live now — real research activity, simulated money only",
     since: "Since Aug 2026",
     stack: ["Python", "FastAPI", "Postgres", "React", "LLM agents"],
@@ -260,9 +204,10 @@ const PROJECTS: Project[] = [
     icon: <Radio size={18} />,
   },
   {
-    title: "Regime Lab — Regime Detection, Evaluated Honestly",
+    title: "Regime Lab",
+    featured: true, category: "Research",
     blurb:
-      "Four market-regime models run through an evaluation harness built specifically to stop them cheating: strictly causal filtering, prefix property tests that fail if appending future data changes a past estimate, and a crisis-event list committed to git before any experiment ran. The headline finding is about the field, not the model — identical trading logic scores far better the moment you let it peek, and against a leverage-matched volatility-targeting control the median incremental Sharpe across every model and allocation rule is about zero.",
+      "Evaluates four market-regime models using causal filtering, lookahead-detection tests, and walk-forward validation. Compares results against a leverage-matched volatility-targeting control, documenting where apparent performance disappears under stricter evaluation.",
     highlight: "Same logic, 0.44 Sharpe causal against 1.39 with lookahead",
     since: "Since Aug 2026",
     stack: ["Python", "HMM", "Jump models", "BOCPD", "Walk-forward"],
@@ -272,7 +217,7 @@ const PROJECTS: Project[] = [
   {
     title: "Strategy Survival Funnel",
     blurb:
-      "Backtests 318 configurations of 47 popular retail trading strategies across 29 assets and 15 years of daily data, then pushes all 9,222 results through walk-forward validation, six survival filters, parameter-sensitivity surfaces, and a bootstrap stress test. Half of the backtests showed a positive out-of-sample Sharpe, which is exactly what a coin flip would produce. The project is the machinery that tells the difference.",
+      "Tests 318 configurations of 47 retail trading strategies across 29 assets and 15 years of daily data. Walk-forward validation, six survival filters, parameter sensitivity, and bootstrap stress tests separate appealing backtests from more robust candidates.",
     highlight: "9,222 backtests in, 67 out — a 0.73% survival rate",
     since: "Since Aug 2026",
     stack: ["Python", "Walk-forward", "Bootstrap"],
@@ -303,7 +248,7 @@ const PROJECTS: Project[] = [
     title: "Monte Carlo Option Pricer in q/kdb+",
     blurb:
       "European, Asian, and knock-out barrier options priced in idiomatic vectorized q, where no loop ever touches a path. Validated against closed-form Black-Scholes, with antithetic variance reduction and a convergence and throughput study.",
-    highlight: "Written in kdb+, the stack most trading desks actually run on",
+    highlight: "Vectorized q implementation with convergence and throughput analysis",
     since: "Since Apr 2026",
     stack: ["q / kdb+", "Monte Carlo"],
     href: "https://github.com/crollila/kdb-monte-carlo-option-pricer",
@@ -352,7 +297,7 @@ const PROJECTS: Project[] = [
     title: "News Sentiment Trading Algorithm",
     blurb:
       "An event-driven trading system in Node.js that scores breaking Benzinga headlines through a tailored GPT model, then routes buy, sell, short, and cover decisions through Alpaca, gated by liquidity filters, position sizing, drawdown stops, and fail-safes.",
-    highlight: "18 stars and 4 forks on GitHub",
+    highlight: "Event-driven architecture with execution risk controls",
     since: "Since Jan 2025",
     stack: ["Node.js", "OpenAI", "Alpaca", "Benzinga"],
     href: "https://github.com/crollila/High-Frequency-Trading-Algorithm-with-Instant-News-Sentiment-Analysis",
@@ -370,7 +315,7 @@ const PROJECTS: Project[] = [
   {
     title: "Agent Trading Lab",
     blurb:
-      "A sandbox for a question a lot of people are asking badly: can LLM agents actually beat buying SPY? Built to answer it safely, with paper money only and a harness that records every decision for review.",
+      "Two teams of research, strategy, and risk agents operate Alpaca paper accounts. A deterministic risk engine enforces exposure limits and a kill switch, while decision logs and daily comparisons with SPY support review.",
     since: "Since Jan 2026",
     stack: ["Python", "LLM agents"],
     href: "https://github.com/crollila/exalted-agent-trading-lab",
@@ -388,56 +333,39 @@ const PROJECTS: Project[] = [
   },
 ];
 
+const CATEGORIES = ["All projects", "Valuation", "Research", "Trading systems", "Applications"];
+function projectCategory(p: Project) {
+  if (p.category) return p.category;
+  if (/Sanctum/.test(p.title)) return "Applications";
+  if (/Pric|Volatility Surface|Hedging/.test(p.title)) return "Valuation";
+  if (/Trading|AlpacaBot|ExaltedFable/.test(p.title)) return "Trading systems";
+  return "Research";
+}
 function Work() {
+  const [category, setCategory] = useState("All projects");
+  const [expanded, setExpanded] = useState(false);
+  const filtered = PROJECTS.filter(p => category === "All projects" || projectCategory(p) === category);
+  const visible = expanded || category !== "All projects" ? filtered : filtered.slice(0, 6);
   return (
-    <Section
-      id="work"
-      eyebrow="Selected work"
-      title="Quantitative projects"
-      lede="Thirteen public repositories drawn from roughly 27 months of building trading systems on my own, starting May 2024. This is independent research and paper trading, not a funded desk, and I would rather say that plainly than let anyone assume otherwise. The repositories went up together, so their commit dates understate how long the underlying work actually ran. I picked the hard version on purpose: implementing Black-Scholes, the implied-vol inversion, and the SVI fit by hand teaches far more than importing them. The two newest repositories push on the part that matters more than any model: whether a result is real at all, and reporting it honestly when it is not."
-    >
-      <div className="grid gap-5 md:grid-cols-2">
-        {PROJECTS.map((p) => <ProjectCard key={p.title} {...p} />)}
-      </div>
-      <div className="mt-8">
-        <a
-          href={LINKS.github}
-          className="inline-flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-neutral-100"
-        >
-          All repositories on GitHub <ArrowUpRight size={15} />
-        </a>
-      </div>
+    <Section id="work" eyebrow="Portfolio" title="Selected projects"
+      lede="Independent projects in valuation, market research, and software. Explore the code, methods, and limitations behind each one. Trading systems use research or simulated environments; synthetic results are labeled.">
+      <div className="mb-7 flex flex-wrap gap-2" role="group" aria-label="Filter projects">{CATEGORIES.map(c => <button type="button" key={c} aria-pressed={category === c} onClick={() => { setCategory(c); setExpanded(false); }} className={category === c ? "filter-button active" : "filter-button"}>{c}</button>)}</div>
+      <p role="status" className="mb-5 text-sm text-neutral-600">Showing {visible.length} of {filtered.length} projects{category !== "All projects" ? " in " + category.toLowerCase() : " · selected work"}</p>
+      <div className="project-list">{visible.map(p => <ProjectCard key={p.title} {...p} />)}</div>
+      <div className="mt-8 flex flex-wrap items-center gap-6">{category === "All projects" && <button type="button" onClick={() => setExpanded(!expanded)} className="filter-button">{expanded ? "Show selected projects" : "Show all " + PROJECTS.length + " projects"}</button>}<a href={LINKS.github} className="inline-flex items-center gap-2 text-sm text-slate-800 hover:text-slate-900">Explore GitHub <ArrowUpRight size={15} /></a></div>
     </Section>
   );
 }
 
-function ProjectCard({ title, blurb, stack, href, icon, highlight, since }: Project) {
+function ProjectCard(p: Project) {
+  const { title, blurb, stack, href, highlight, since } = p;
   return (
-    <a
-      href={href}
-      className="group flex flex-col rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 transition hover:border-neutral-600 hover:bg-neutral-900/70"
-    >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <span className="rounded-lg border border-neutral-800 bg-neutral-950 p-2 text-neutral-300">{icon}</span>
-          <h3 className="text-lg font-medium leading-snug">{title}</h3>
-        </div>
-        <ArrowUpRight size={18} className="mt-2 shrink-0 text-neutral-600 transition group-hover:text-neutral-200" />
-      </div>
-
-      <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-neutral-400">{blurb}</p>
-
-      {highlight && (
-        <p className="mt-4 border-l-2 border-neutral-700 pl-3 text-sm text-neutral-300">{highlight}</p>
-      )}
-
-      <div className="mt-5 flex flex-wrap items-center gap-2">
-        {stack.map((s) => (
-          <span key={s} className="rounded-full border border-neutral-800 px-2.5 py-1 text-xs text-neutral-500">{s}</span>
-        ))}
-        {since && <span className="ml-auto text-xs text-neutral-600">{since}</span>}
-      </div>
-    </a>
+    <article className="project-card">
+      <div className="project-heading"><h3><a href={href}>{title}</a></h3><span className="text-xs text-neutral-600">{projectCategory(p)}</span></div>
+      <p className="mt-3 leading-relaxed text-neutral-600">{blurb}</p>
+      {highlight && <p className="mt-3 text-sm text-neutral-700">{highlight}</p>}
+      <div className="project-meta"><span>{stack.join(" · ")}{since ? " / " + since : ""}</span><a href={href}>{href === "#planshift" ? "Details and download" : href === LINKS.sanctum ? "View research floor" : "View repository"} <span aria-hidden="true">↗</span></a></div>
+    </article>
   );
 }
 
@@ -445,7 +373,7 @@ function ProjectCard({ title, blurb, stack, href, icon, highlight, since }: Proj
 
 function Experience() {
   return (
-    <Section id="experience" eyebrow="Experience" title="Where I have worked">
+    <Section id="experience" eyebrow="Experience" title="Professional experience">
       <div className="space-y-5">
         <Role
           icon={<Briefcase size={18} />}
@@ -459,7 +387,7 @@ function Experience() {
             "Wrote an equity research memo with a full investment thesis, bull and bear cases, valuation, and risk assessment.",
             "Consolidated 15 financial documents into a single client dashboard spanning banking, investment, retirement, stock, and tax records, masking account and identity details throughout.",
             "Learned Salesforce, Advisor Compass, and MoneyGuide; cleaned duplicate accounts and reorganized advisor insights so client opportunities surfaced by priority.",
-            "Prototyped an AI-assisted prospecting tool that scrapes daily signals for people going through job transitions.",
+            "Built PlanShift for KW Capital Advisors / Ameriprise Financial: a Windows application that consolidates public workforce notices, retirement-plan research, and prospect tracking, with Excel exports to support advisor review and follow-up.",
             "Completed more than 150 hours in a professional advisory office.",
           ]}
         />
@@ -491,25 +419,25 @@ function Experience() {
   );
 }
 
-function Role({ icon, title, org, when, points }: {
+function Role({ title, org, when, points }: {
   icon: React.ReactNode; title: string; org: string; when: string; points: string[];
 }) {
   return (
-    <div className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 md:p-8">
+    <div className="experience-entry">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <span className="rounded-lg border border-neutral-800 bg-neutral-950 p-2 text-neutral-300">{icon}</span>
+
           <div>
             <h3 className="text-lg font-medium">{title}</h3>
-            <p className="text-sm text-neutral-400">{org}</p>
+            <p className="text-sm text-neutral-600">{org}</p>
           </div>
         </div>
-        <span className="text-sm text-neutral-500">{when}</span>
+        <span className="text-sm text-neutral-600">{when}</span>
       </div>
       <ul className="mt-6 space-y-3">
         {points.map((p) => (
-          <li key={p} className="flex gap-3 text-[0.95rem] leading-relaxed text-neutral-400">
-            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-neutral-600" />
+          <li key={p} className="flex gap-3 text-[0.95rem] leading-relaxed text-neutral-600">
+            <span className="mt-2 h-1 w-1 shrink-0 rounded-sm bg-neutral-600" />
             <span>{p}</span>
           </li>
         ))}
@@ -549,23 +477,21 @@ function Education() {
 
   return (
     <Section id="education" eyebrow="Education" title="Colorado State University">
-      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 md:p-8">
+      <div className="education-entry">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="rounded-lg border border-neutral-800 bg-neutral-950 p-2 text-neutral-300">
-              <GraduationCap size={18} />
-            </span>
+
             <div>
               <h3 className="text-lg font-medium">B.S. Business Administration, Concentration in Finance</h3>
-              <p className="text-sm text-neutral-400">
+              <p className="text-sm text-neutral-600">
                 Previously biology and pre-med at Ohio State; Associate of Science, Front Range Community College
               </p>
             </div>
           </div>
-          <span className="text-sm text-neutral-500">Conferred August 2026</span>
+          <span className="text-sm text-neutral-600">Conferred August 2026</span>
         </div>
 
-        <p className="mt-6 max-w-3xl leading-relaxed text-neutral-400">
+        <p className="mt-6 max-w-3xl leading-relaxed text-neutral-600">
           I started in biology because I wanted to be a surgeon, and I still think the body is the most interesting
           system there is. Markets turned out to be the other system I could not stop taking apart, and they rewarded
           the same competitive instinct. The coursework below reflects both, plus the computer science I added because
@@ -575,9 +501,9 @@ function Education() {
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           {groups.map((g) => (
             <div key={g.heading}>
-              <h4 className="text-sm font-medium uppercase tracking-wider text-neutral-500">{g.heading}</h4>
+              <h4 className="text-sm font-medium uppercase tracking-wider text-neutral-600">{g.heading}</h4>
               <ul className="mt-3 space-y-1.5">
-                {g.courses.map((c) => <li key={c} className="text-sm text-neutral-400">{c}</li>)}
+                {g.courses.map((c) => <li key={c} className="text-sm text-neutral-600">{c}</li>)}
               </ul>
             </div>
           ))}
@@ -593,11 +519,12 @@ function Beyond() {
   return (
     <Section
       id="beyond"
-      eyebrow="Beyond the resume"
-      title="The part that does not fit on one page"
-      lede="A resume gives me about six lines. These are the things that actually explain how I work: leading teams that had no obligation to follow me, competing where the feedback is immediate and public, and managing a body that has never once been on autopilot."
+      eyebrow="Creator, competitor, and community leader"
+      title="Beyond the resume"
+      lede="Before finance, I built an audience and led competitive teams. Those experiences shaped how I prepare, communicate, and take responsibility for outcomes."
     >
-      <div className="grid gap-5 md:grid-cols-2">
+      <YouTubeFeature />
+      <div className="grid items-start gap-5 md:grid-cols-2">
         <StoryCard
           icon={<Trophy size={18} />}
           title="Professional Fortnite"
@@ -620,32 +547,8 @@ function Beyond() {
 
         <StoryCard
           icon={<Users size={18} />}
-          title="Guild Master of Ashes"
-          body={
-            <>
-              <p>
-                I founded and led Ashes, a World of Warcraft Classic guild of more than 500 members with a 40-person
-                raid core, to world-ranked clears on Crusader Strike. Our documented records include the world&rsquo;s
-                fastest Mythic Naxxramas and the world&rsquo;s fastest Scarlet Enclave, alongside a world #2 Alliance
-                progression finish.
-              </p>
-              <p className="mt-3">
-                Running it meant recruiting, scheduling across time zones, performance review, roster cuts, and
-                conflict resolution, all unpaid, with volunteers who could walk away whenever they liked. It is still
-                the hardest management job I have had.
-              </p>
-              <p className="mt-3 text-sm text-neutral-500">
-                Records on{" "}
-                <a className="underline underline-offset-4 hover:text-neutral-300" href="https://sod.warcraftlogs.com/guild/us/crusader-strike/ashes">
-                  Warcraft Logs
-                </a>{" "}
-                and the{" "}
-                <a className="underline underline-offset-4 hover:text-neutral-300" href="https://www.youtube.com/@ashes42069">
-                  Ashes channel
-                </a>.
-              </p>
-            </>
-          }
+          title="World of Warcraft — Leading Ashes"
+          body={<AshesLeadership />}
         />
 
         <StoryCard
@@ -697,14 +600,58 @@ function Beyond() {
   );
 }
 
-function StoryCard({ icon, title, body }: { icon: React.ReactNode; title: string; body: React.ReactNode }) {
+function YouTubeFeature() {
   return (
-    <div className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 md:p-8">
+    <article id="youtube" className="mb-8 border border-neutral-200 p-6 md:p-8" aria-labelledby="youtube-title">
+      <p className="text-sm text-neutral-600">Independent creator · Exalted</p>
+      <h3 id="youtube-title" className="mt-2 text-xl font-semibold">Built and managed a YouTube channel independently</h3>
+      <dl className="mt-6 grid grid-cols-2 gap-6 border-y border-neutral-200 py-5 md:grid-cols-4">
+        {[{value: "243,000", label: "subscribers"}, {value: "30.4 million", label: "lifetime views"}, {value: "205", label: "videos created solo"}, {value: "6", label: "videos above 1 million views"}].map(stat => <div key={stat.label}><dt className="text-sm text-neutral-600">{stat.label}</dt><dd className="mt-1 text-xl font-semibold">{stat.value}</dd></div>)}
+      </dl>
+      <p className="mt-5 leading-relaxed text-neutral-600">I built Exalted into a Fortnite education channel and managed the entire operation myself: researching topics, teaching competitive strategies, writing scripts, recording gameplay, editing videos, and publishing consistently.</p>
+      <ul className="leadership-points">
+        <li>Owned audience growth and content strategy, using retention analytics, search optimization, and thumbnail and title testing to improve how videos reached and engaged viewers.</li>
+        <li>Managed community engagement across YouTube, Discord, Twitch, Instagram, and TikTok, turning technical gameplay knowledge into clear, useful instruction.</li>
+        <li>Handled the commercial side, including sponsorship negotiations with brands such as Red Bull and participation in the Epic Games creator program.</li>
+      </ul>
+      <p className="mt-5 leading-relaxed text-neutral-600">Running the channel meant being responsible for both the creative work and the business decisions—from deciding what to produce to evaluating the results and maintaining relationships with viewers and sponsors.</p>
+      <a href={LINKS.youtube} className="mt-5 inline-block text-sm underline underline-offset-4">Visit the Exalted YouTube channel ↗</a>
+    </article>
+  );
+}
+
+function AshesLeadership() {
+  return (
+    <div>
+      <h4 className="font-semibold">Founder &amp; Guild Leader, Ashes</h4>
+      <p className="mt-2 text-sm text-neutral-600">2021–2023</p>
+      <p className="mt-2 text-sm text-neutral-600">World of Warcraft Classic · Season of Mastery &amp; Season of Discovery</p>
+      <p className="mt-4 leading-relaxed text-neutral-600">Founded and led a community of more than 500 players, coordinating recruitment, team development, and competitive performance across multiple raid teams.</p>
+      <ul className="leadership-points">
+        <li>Taught advanced raid strategies and adapted emerging tactics into practical assignments, preparation guides, and coaching for individual players and team leaders.</li>
+        <li>Used spreadsheets, combat logs, and recorded gameplay (VOD) reviews to organize rosters, evaluate performance, diagnose mistakes, and track improvement.</li>
+        <li>Maintained morale through demanding progression, repeated setbacks, and lengthy preparation and resource-gathering sessions; kept volunteer teams motivated through clear goals, constructive feedback, and recognition.</li>
+        <li>Managed scheduling, recruitment, conflict resolution, and community expectations across teams, while using YouTube videos and the Ashes channel to promote achievements and attract players.</li>
+      </ul>
+      <h4 className="mt-6 text-sm font-semibold">Selected competitive results</h4>
+      <ul className="leadership-points">
+        <li><strong>Season of Mastery:</strong> World-first AQ40 Hard Mode 4 clear; world #1 All-Star guild rankings in AQ40 and Naxxramas; more than 300 top-rated individual boss performances (100 parses).</li>
+        <li><strong>Season of Discovery:</strong> Sunken Temple clear in 30:05, ranked #1 server Alliance and #15 worldwide; seven teams completed the raid.</li>
+        <li><strong>Team development:</strong> Scaled to 16 Blackfathom Deeps raid teams during Season of Discovery, with eight recording clears under 20 minutes.</li>
+      </ul>
+      <div className="intro-links text-sm"><a href="https://vanilla.warcraftlogs.com/guild/id/655060">Season of Mastery records</a><a href="https://sod.warcraftlogs.com/guild/us/crusader-strike/ashes">Season of Discovery records</a><a href="https://youtu.be/YbYxGtJGQa8">Sunken Temple run</a><a href="https://www.youtube.com/@ashes42069">Ashes YouTube</a></div>
+    </div>
+  );
+}
+
+function StoryCard({ title, body }: { icon: React.ReactNode; title: string; body: React.ReactNode }) {
+  return (
+    <div className="rounded-none border border-neutral-200 bg-white p-6 md:p-8">
       <div className="flex items-center gap-3">
-        <span className="rounded-lg border border-neutral-800 bg-neutral-950 p-2 text-neutral-300">{icon}</span>
+
         <h3 className="text-lg font-medium">{title}</h3>
       </div>
-      <div className="mt-5 leading-relaxed text-neutral-400">{body}</div>
+      <details className="mt-5"><summary className="cursor-pointer text-sm text-slate-800">Read the story</summary><div className="mt-4 leading-relaxed text-neutral-600">{body}</div></details>
     </div>
   );
 }
@@ -713,29 +660,29 @@ function StoryCard({ icon, title, body }: { icon: React.ReactNode; title: string
 
 function Contact() {
   return (
-    <section id="contact" className="border-t border-neutral-800/60">
-      <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
-          <motion.h2 variants={fadeUp} className="text-3xl font-semibold tracking-tight md:text-5xl">
-            Let us talk.
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-400">
+    <section id="contact" className="border-t border-neutral-200">
+      <div className="mx-auto max-w-5xl px-4 py-20 md:px-6 md:py-28">
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Contact
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
             I graduated in August 2026 and am available now, looking for analyst roles in global markets, sales &amp;
             trading, equity research, private wealth, or quant-adjacent research. Open to New York, Denver, Boulder,
             and Chicago, and happy to relocate for the right desk.
-          </motion.p>
-          <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3">
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
             <a
               href={LINKS.email}
-              className="inline-flex items-center gap-2 rounded-full bg-neutral-100 px-6 py-3 font-medium text-neutral-900 transition hover:bg-white"
+              className="inline-flex items-center gap-2 rounded-sm bg-neutral-100 px-6 py-3 font-medium text-neutral-900 transition hover:bg-white"
             >
               <Mail size={17} /> crollila@gmail.com
             </a>
             <Pill href={LINKS.resume} icon={<FileText size={15} />}>Resume</Pill>
             <Pill href={LINKS.linkedin} icon={<Linkedin size={15} />}>LinkedIn</Pill>
             <Pill href={LINKS.github} icon={<Github size={15} />}>GitHub</Pill>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
