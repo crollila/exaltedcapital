@@ -12,7 +12,7 @@ const LINKS = {
   linkedin: "https://www.linkedin.com/in/caseollila/",
   youtube: "https://www.youtube.com/@ExaltedFortnite",
   resume: "/Case_Ollila_Resume.pdf",
-  sanctum: "https://sanctum.exaltedcapital.com/public-floor",
+  sanctum: "https://sanctum.exaltedcapital.com/sanctum",
 };
 
 export default function App() {
@@ -77,7 +77,7 @@ function PlanShiftDownload() {
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const nav = [{ label: "Projects", href: "#work" }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
+  const nav = [{ label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4 md:px-6">
@@ -194,7 +194,7 @@ const PROJECTS: Project[] = [
     href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
   },
   {
-    title: "Sanctum — Live AI Research Floor",
+    title: "Sanctum — Open Research Lab",
     blurb:
       "An interactive research floor where AI agents generate trading hypotheses, debate them, and run a ten-stage validation pipeline before simulated trading. The public view makes research activity and the evaluation process visible.",
     highlight: "Live now — real research activity, simulated money only",
