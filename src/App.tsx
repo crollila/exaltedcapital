@@ -523,27 +523,39 @@ function Beyond() {
       title="Beyond the resume"
       lede="Before finance, I built an audience and led competitive teams. Those experiences shaped how I prepare, communicate, and take responsibility for outcomes."
     >
-      <YouTubeFeature />
       <div className="grid items-start gap-5 md:grid-cols-2">
         <StoryCard
           icon={<Trophy size={18} />}
           title="Professional Fortnite"
+          id="fortnite"
+          lede="41 top-1,000 finishes · 8 top-200 finishes · 3 top-100 finishes"
           body={
             <>
-              <p>
-                I moved to Oregon for a year, then to Ashburn, Virginia for another, to train and compete alongside
-                the top of the scene. I qualified for FNCS, played DreamHack, and competed at Twitch Rivals, TwitchCon
-                in California, and an international tournament in Saudi Arabia, earning prize money across more than
-                50 tournaments before my contract ended and I went back to school.
-              </p>
-              <p className="mt-3">
-                What actually transferred: performing when the outcome is public and immediate, reviewing losses
-                without flinching, and the fact that I was never the most mechanically gifted player in the lobby, so
-                I had to out-prepare people instead.
-              </p>
+              <p>Professional Fortnite competitor with appearances at Twitch Rivals and in-person LAN tournaments in the United States and internationally.</p>
+              <ul className="leadership-points">
+                <li><strong>World Cup weekly online finalist:</strong> Placed 459th in regional Solo Week 9 qualifying and advanced to the weekly online finals during the 2019 Fortnite World Cup—a competition that drew over 40 million participants worldwide.</li>
+                <li><strong>Repeated high placements in large competitive fields:</strong> Competed in open qualifying and cup fields of 10,000+ teams or players, earning 41 top-1,000 finishes—including eight top-200 and three top-100 finishes—across 110 recorded qualifying, finals, and other competitive sessions.</li>
+                <li><strong>Three top-100 team finishes:</strong> Placed 53rd in Trios Week 3 qualifying, 68th in Luxe Cup NA West qualifying, and 83rd in the NA West Trios Cash Cup. The Luxe Cup result alone ranks within the top 0.68% of a documented field of at least 10,000 teams.</li>
+                <li><strong>Discipline and execution:</strong> Maintained a dedicated practice routine, adapted strategies with teammates, and stayed composed through tournament setbacks. Relocated to Ashburn, Virginia to reduce network latency and improve competitive conditions.</li>
+              </ul>
+              <p className="mt-4">Competed during an era when Fortnite reached <a href="https://www.fortnite.com/news/fall-skirmish-details?lang=en-US" className="underline underline-offset-4">78.3 million monthly players (August 2018)</a>. Built my <a href="#youtube" className="underline underline-offset-4">independent creator business</a> alongside competition, turning firsthand experience into educational content.</p>
+              <details className="mt-5 text-sm text-neutral-600">
+                <summary className="cursor-pointer font-medium text-neutral-900">Results and sources</summary>
+                <ul className="leadership-points">
+                  <li>World Cup Solo Week 9: 459th in the opening round on June 8, 2019; 810th in the weekly online finals on June 9.</li>
+                  <li>Top-100 finishes: 53rd, Trios Week 3 opening round (September 1, 2019); 68th, Luxe Cup NA West opening round (March 30, 2019); 83rd, NA West Trios Cash Cup (August 30, 2019).</li>
+                  <li>Other top-200 finishes: 112th in Duos Test Event; 119th and 138th in FNCS Trios Week 1 rounds; 145th in World Cup Warmup; 154th in PlayVS Collegiate.</li>
+                </ul>
+                <p className="mt-3">Counts come from 110 sessions in my recorded event history, including qualifying rounds, finals, collegiate competition, and a test event. Top-100 finishes are included in the top-200 and top-1,000 totals.</p>
+                <p className="mt-3">The 10,000+ field context reflects the opening-round and cup leaderboards I reviewed on Fortnite Tracker, which stop displaying results at rank 10,000. The <a href="https://fortnitetracker.com/events/epicgames_LuxeCup_NAW?window=LuxeCup_NAW_Event1&amp;page=99" className="underline underline-offset-4">Luxe Cup leaderboard</a> is one documented example: 68 ÷ 10,000 = 0.68%. The finish counts also include later rounds with smaller qualified fields, collegiate competition, and a test event; they do not represent 41 separate fields of 10,000+. Totals beyond the display cap remain unknown.</p>
+                <p className="mt-3"><a href="https://www.fortnite.com/news/the-fortnite-world-cup-a-record-setting-tournament?lang=en-US" className="underline underline-offset-4">Epic’s 40-million figure</a> covers the worldwide World Cup campaign, not an individual regional round. Weekly online finals preceded the World Cup Finals in New York.</p>
+                <p className="mt-3"><a href="https://fortnitetracker.com/profile/all/0%20Ping%20Exalted/events" className="underline underline-offset-4">Tournament history ↗</a> · <a href="https://fortnite-esports.fandom.com/wiki/Exalted" className="underline underline-offset-4">Esports results archive ↗</a> · <a href="https://www.fortnite.com/news/fortnite-champion-series-season-x-official-rules" className="underline underline-offset-4">FNCS qualification rules ↗</a></p>
+              </details>
             </>
           }
         />
+
+        <YouTubeFeature />
 
         <StoryCard
           icon={<Users size={18} />}
@@ -602,21 +614,19 @@ function Beyond() {
 
 function YouTubeFeature() {
   return (
-    <article id="youtube" className="mb-8 border border-neutral-200 p-6 md:p-8" aria-labelledby="youtube-title">
-      <p className="text-sm text-neutral-600">Independent creator · Exalted</p>
-      <h3 id="youtube-title" className="mt-2 text-xl font-semibold">Built and managed a YouTube channel independently</h3>
-      <dl className="mt-6 grid grid-cols-2 gap-6 border-y border-neutral-200 py-5 md:grid-cols-4">
-        {[{value: "243,000", label: "subscribers"}, {value: "30.4 million", label: "lifetime views"}, {value: "205", label: "videos created solo"}, {value: "6", label: "videos above 1 million views"}].map(stat => <div key={stat.label}><dt className="text-sm text-neutral-600">{stat.label}</dt><dd className="mt-1 text-xl font-semibold">{stat.value}</dd></div>)}
-      </dl>
-      <p className="mt-5 leading-relaxed text-neutral-600">I built Exalted into a Fortnite education channel and managed the entire operation myself: researching topics, teaching competitive strategies, writing scripts, recording gameplay, editing videos, and publishing consistently.</p>
-      <ul className="leadership-points">
-        <li>Owned audience growth and content strategy, using retention analytics, search optimization, and thumbnail and title testing to improve how videos reached and engaged viewers.</li>
-        <li>Managed community engagement across YouTube, Discord, Twitch, Instagram, and TikTok, turning technical gameplay knowledge into clear, useful instruction.</li>
-        <li>Handled the commercial side, including sponsorship negotiations with brands such as Red Bull and participation in the Epic Games creator program.</li>
-      </ul>
-      <p className="mt-5 leading-relaxed text-neutral-600">Running the channel meant being responsible for both the creative work and the business decisions—from deciding what to produce to evaluating the results and maintaining relationships with viewers and sponsors.</p>
-      <a href={LINKS.youtube} className="mt-5 inline-block text-sm underline underline-offset-4">Visit the Exalted YouTube channel ↗</a>
-    </article>
+    <StoryCard id="youtube" icon={<Youtube size={18} />} title="Independent Creator — Exalted"
+      lede="243,000 subscribers · 30.4 million lifetime views · 205 videos created solo"
+      body={<>
+        <p>Built and independently operated a Fortnite education channel, with six videos exceeding one million views. Owned the creative process and the business behind it.</p>
+        <ul className="leadership-points">
+          <li><strong>End-to-end production:</strong> Researched topics, taught competitive strategies, wrote scripts, recorded gameplay, edited videos, and managed publishing.</li>
+          <li><strong>Audience development:</strong> Used retention analytics, search optimization, and thumbnail and title testing to guide content decisions and improve engagement.</li>
+          <li><strong>Business management:</strong> Negotiated sponsorships with brands including Red Bull, participated in the Epic Games creator program, and managed sponsor relationships.</li>
+          <li><strong>Community building:</strong> Managed engagement across YouTube, Discord, Twitch, Instagram, and TikTok, translating complex gameplay into accessible instruction.</li>
+        </ul>
+        <p className="mt-4">Built the channel alongside my <a href="#fortnite" className="underline underline-offset-4">professional Fortnite career</a>. Competition informed the educational content; the channel developed a separate audience and commercial business around that expertise.</p>
+        <a href={LINKS.youtube} className="mt-5 inline-block text-sm underline underline-offset-4">Visit the Exalted YouTube channel ↗</a>
+      </>} />
   );
 }
 
@@ -644,13 +654,14 @@ function AshesLeadership() {
   );
 }
 
-function StoryCard({ title, body }: { icon: React.ReactNode; title: string; body: React.ReactNode }) {
+function StoryCard({ id, title, lede, body }: { id?: string; icon: React.ReactNode; title: string; lede?: string; body: React.ReactNode }) {
   return (
-    <div className="rounded-none border border-neutral-200 bg-white p-6 md:p-8">
+    <div id={id} className="rounded-none border border-neutral-200 bg-white p-6 md:p-8">
       <div className="flex items-center gap-3">
 
         <h3 className="text-lg font-medium">{title}</h3>
       </div>
+      {lede && <p className="mt-3 text-sm leading-relaxed text-neutral-600">{lede}</p>}
       <details className="mt-5"><summary className="cursor-pointer text-sm text-slate-800">Read the story</summary><div className="mt-4 leading-relaxed text-neutral-600">{body}</div></details>
     </div>
   );
