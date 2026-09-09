@@ -145,12 +145,15 @@ function Pill({ href, icon, children }: { href: string; icon: React.ReactNode; c
 function Hero() {
   return (
     <section id="top" className="intro mx-auto max-w-5xl px-4 md:px-6">
+      <img className="intro-portrait" src="/case-ollila.jpg" alt="Case Ollila" width="800" height="1000" fetchPriority="high" />
+      <div className="intro-copy">
       <p className="text-sm text-neutral-600">Finance · Quantitative research · Software development</p>
       <h1>Case Ollila</h1>
       <p className="intro-summary">Finance graduate from Colorado State University, building financial models, market research systems, and practical software.</p>
       <p className="mt-4 max-w-3xl leading-relaxed text-neutral-600">My work spans options pricing in q/kdb+, Python research pipelines, hedging backtests in R, and desktop applications. I am seeking analyst opportunities in global markets, sales &amp; trading, equity research, and quantitative research.</p>
       <div className="intro-links"><a href={LINKS.resume}>Resume</a><a href={LINKS.github}>GitHub</a><a href={LINKS.linkedin}>LinkedIn</a><a href={LINKS.email}>crollila@gmail.com</a></div>
       <p className="mt-6 text-sm text-neutral-600"><strong className="font-medium text-neutral-800">Technical skills:</strong> Python, Excel, R, q/kdb+, TypeScript, OCaml</p>
+      </div>
     </section>
   );
 }
