@@ -167,6 +167,7 @@ type Project = {
   blurb: string;
   stack: string[];
   href: string;
+  download?: string;
   icon: React.ReactNode;
   highlight?: string;
   since?: string;
@@ -192,8 +193,9 @@ const PROJECTS: Project[] = [
     title: "Fantasy Manager",
     category: "Applications", featured: true,
     blurb: "A Windows application for fantasy football research and injury-aware lineup decisions. Combines ESPN league integration, local data storage, a React interface, and archived forecasts with visible accuracy tracking. Model probabilities remain experimental.",
-    highlight: "Windows installer · Local data · Forecast evaluation",
+    highlight: "Windows v0.4.1 · Remembered ESPN sign-in · Local forecast evaluation",
     stack: ["Python", "FastAPI", "React", "SQLite"],
+    download: "https://github.com/crollila/fantasy-manager/releases/download/v0.4.1/Fantasy-Manager-Setup-0.4.1.exe",
     href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
   },
   {
@@ -361,13 +363,13 @@ function Work() {
 }
 
 function ProjectCard(p: Project) {
-  const { title, blurb, stack, href, highlight, since } = p;
+  const { title, blurb, stack, href, highlight, since, download } = p;
   return (
     <article className="project-card">
       <div className="project-heading"><h3><a href={href}>{title}</a></h3><span className="text-xs text-neutral-600">{projectCategory(p)}</span></div>
       <p className="mt-3 leading-relaxed text-neutral-600">{blurb}</p>
       {highlight && <p className="mt-3 text-sm text-neutral-700">{highlight}</p>}
-      <div className="project-meta"><span>{stack.join(" · ")}{since ? " / " + since : ""}</span><a href={href}>{href === "#planshift" ? "Details and download" : href === LINKS.sanctum ? "View research floor" : "View repository"} <span aria-hidden="true">↗</span></a></div>
+      <div className="project-meta"><span>{stack.join(" · ")}{since ? " / " + since : ""}</span><span className="flex flex-wrap gap-5">{download && <a href={download}>Download for Windows <span aria-hidden="true">↓</span></a>}<a href={href}>{href === "#planshift" ? "Details and download" : href === LINKS.sanctum ? "View research floor" : "View repository"} <span aria-hidden="true">↗</span></a></span></div>
     </article>
   );
 }
