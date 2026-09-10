@@ -192,10 +192,10 @@ const PROJECTS: Project[] = [
   {
     title: "Fantasy Manager",
     category: "Applications", featured: true,
-    blurb: "A Windows application for fantasy football research and injury-aware lineup decisions. Combines ESPN league integration, local data storage, a React interface, and archived forecasts with visible accuracy tracking. Model probabilities remain experimental.",
-    highlight: "Windows v0.4.1 · Remembered ESPN sign-in · Local forecast evaluation",
+    blurb: "A Windows application for fantasy football research and injury-aware lineup decisions. Combines ESPN league integration, local data storage, postgame reviews, and corrections tested on future games. Model probabilities remain experimental.",
+    highlight: "Windows v0.5.0 · Postgame reviews · Tested learning",
     stack: ["Python", "FastAPI", "React", "SQLite"],
-    download: "https://github.com/crollila/fantasy-manager/releases/download/v0.4.1/Fantasy-Manager-Setup-0.4.1.exe",
+    download: "https://github.com/crollila/fantasy-manager/releases/download/v0.5.0/Fantasy-Manager-Setup-0.5.0.exe",
     href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
   },
   {
