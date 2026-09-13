@@ -1,0 +1,1 @@
+import{S as e}from"./theme-BdmIJ4Dy.js";import{T as m}from"./preload-helper-Cqg-FkKE.js";import{S as t,P as a}from"./preset_utils-gacYGigu.js";import{W as i}from"./sim-Dw3FOWNU.js";import"./metadata-BHp39TSL.js";import"./launched_sims-xSfY2mtv.js";const o=new t,r=new a(e.SpecWarlock,o);o.raid.setPlayer(m.nextEventID(),0,r);new i(document.body,r);

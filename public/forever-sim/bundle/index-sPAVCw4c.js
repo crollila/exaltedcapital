@@ -1,0 +1,1 @@
+import{S as a}from"./theme-BdmIJ4Dy.js";import{T as m}from"./preload-helper-Cqg-FkKE.js";import{S as o,P as i}from"./preset_utils-gacYGigu.js";import{F as n}from"./sim-CYS5Ntcg.js";import"./metadata-BHp39TSL.js";import"./launched_sims-xSfY2mtv.js";const r=new o,e=new i(a.SpecFeralTankDruid,r);e.enableHealing();r.raid.setPlayer(m.nextEventID(),0,e);new n(document.body,e);

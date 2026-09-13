@@ -1,0 +1,1 @@
+import{S as m}from"./theme-BdmIJ4Dy.js";import{T as o}from"./preload-helper-Cqg-FkKE.js";import{S as t,P as i}from"./preset_utils-gacYGigu.js";import{F as a}from"./sim-BEvhvFiu.js";import"./metadata-BHp39TSL.js";import"./launched_sims-xSfY2mtv.js";const r=new t,e=new i(m.SpecFeralDruid,r);r.raid.setPlayer(o.nextEventID(),0,e);new a(document.body,e);
