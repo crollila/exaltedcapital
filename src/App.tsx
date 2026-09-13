@@ -27,10 +27,30 @@ export default function App() {
         <Education />
         <Beyond />
         <PlanShiftDownload />
+        <ForeverTools />
         <Contact />
       </main>
       <Footer />
     </div>
+  );
+}
+
+function ForeverTools() {
+  const button = "inline-flex items-center rounded-sm bg-emerald-950 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-900";
+  return (
+    <section id="forever" aria-labelledby="forever-title" className="border-t border-neutral-200">
+      <div className="mx-auto max-w-5xl px-4 py-16 md:px-6">
+        <h2 id="forever-title" className="text-2xl font-semibold">World of Warcraft: Forever</h2>
+        <div className="mt-6 flex flex-wrap items-start gap-3">
+          <a className={button} href="/forever-sim/">OPEN FOREVER SIM</a>
+          <a className={button} href="/downloads/ForeverLogger.zip" download>DOWNLOAD FOREVERLOGGER</a>
+          <div className="max-w-sm">
+            <a className={button} href="/downloads/StepSis-Log-Uploader.exe" download>DOWNLOAD STEPSIS LOG UPLOADER</a>
+            <p className="mt-3 text-sm text-neutral-600">Windows may display a SmartScreen warning because this beta uploader is currently unsigned.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -77,7 +97,7 @@ function PlanShiftDownload() {
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const nav = [{ label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
+  const nav = [{ label: "Forever Sim", href: "/forever-sim/" }, { label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4 md:px-6">

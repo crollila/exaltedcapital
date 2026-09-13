@@ -1,0 +1,1 @@
+import{S as e}from"./theme-CnGVa-Ue.js";import{T as m}from"./detailed_results-DpnIJVfU.js";import{S as a,P as t}from"./preset_utils-BAN9MI1m.js";import{T as i}from"./sim-CMDm6lDU.js";import"./launched_sims-BSuKlWR0.js";import"./warrior_inputs-iy_Ygpsa.js";const r=new a,o=new t(e.SpecTankWarrior,r);r.raid.setPlayer(m.nextEventID(),0,o);new i(document.body,o);

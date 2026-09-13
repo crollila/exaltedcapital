@@ -1,0 +1,16 @@
+/downloads/*
+  Cache-Control: no-cache
+  X-Content-Type-Options: nosniff
+  Content-Disposition: attachment
+/downloads/ForeverLogger.zip
+  Content-Type: application/zip
+/downloads/StepSis-Log-Uploader.exe
+  Content-Type: application/octet-stream
+/forever-sim/*.wasm
+  Content-Type: application/wasm
+/forever-sim/*
+  Cache-Control: no-cache
+/forever-sim/bundle/*
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.svg
+  Cache-Control: no-cache

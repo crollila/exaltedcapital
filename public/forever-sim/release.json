@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "product": "Forever Simulator",
+  "foreverBuild": null,
+  "mechanicsUpdatedAt": null,
+  "rulesetId": null,
+  "engineMode": "upstream-baseline",
+  "notice": "This build runs the WoWSims Classic baseline. Forever mechanics have not yet been validated against a published Forever ruleset. Results are exploratory, not verified Forever predictions.",
+  "mechanics": [],
+  "simulatorVersion": "0.1.0+7779ebbf79dc",
+  "upstreamCommit": "7779ebbf79dc",
+  "builtAt": "2026-09-13T05:32:43.837Z",
+  "databaseSha256": "8c225d2687320c690891f92d143dd6fefc30e641560b9513567d248641ee086f",
+  "engineSha256": "54e394f3ec2357f5873935ffdd7092ffc8882670ad8fe61bee65214ce54a5fb8"
+}

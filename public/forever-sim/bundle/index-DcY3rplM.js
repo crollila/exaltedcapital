@@ -1,0 +1,1 @@
+import"./theme-xM64CiCH.js";import{D as a,W as d}from"./detailed_results-DYeUh6JW.js";a.get();const s=new URLSearchParams(window.location.search);s.has("cssClass")&&document.body.classList.add(s.get("cssClass"));const i=s.has("isIndividualSim");i&&document.body.classList.add("individual-sim");document.body.classList.add("new-tab");new d(document.body);

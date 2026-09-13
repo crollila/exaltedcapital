@@ -1,0 +1,2 @@
+80fe26925c25034b8098ae52bc39578090c5e499a9641e238ebb09a1180f6514  ForeverLogger.zip
+2e619cc89805153fa53c3c53af94ebc61d24deca39efe02bd18f914c9fe88cfd  StepSis-Log-Uploader.exe
