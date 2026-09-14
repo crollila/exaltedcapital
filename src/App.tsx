@@ -219,10 +219,10 @@ const PROJECTS: Project[] = [
     href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
   },
   {
-    title: "Sanctum — Open Research Lab",
+    title: "Sanctum — Autonomous Research Firm",
     blurb:
-      "An interactive research floor where AI agents generate trading hypotheses, debate them, and run a ten-stage validation pipeline before simulated trading. The public view makes research activity and the evaluation process visible.",
-    highlight: "Live now — real research activity, simulated money only",
+      "A quant research firm that runs itself. It ingests point-in-time market, macro, regulatory and physical-sensor data, searches for lagged relationships, and has AI agents propose an economic mechanism — but the agents are never the signal. Every rule is pre-registered before a single backtest, then judged by a ten-stage deterministic gauntlet: deflated Sharpe against every trial ever run, cost and regime stress, null controls, and a sealed holdout the evaluator has no permission to read. Survivors accumulate forward evidence before touching a paper broker. Failures are kept, never deleted. The public floor shows the whole process as it happens.",
+    highlight: "Runs unattended · Every failed strategy kept · Simulated money only",
     since: "Since Aug 2026",
     stack: ["Python", "FastAPI", "Postgres", "React", "LLM agents"],
     href: LINKS.sanctum,
