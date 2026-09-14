@@ -97,7 +97,7 @@ function PlanShiftDownload() {
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const nav = [{ label: "Forever Sim", href: "/forever-sim/" }, { label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
+  const nav = [{ label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }, { label: "Forever Sim", href: "/forever-sim/" }];
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4 md:px-6">
@@ -210,12 +210,20 @@ const PROJECTS: Project[] = [
     href: "https://github.com/crollila/exotic-deal-ev-engine", icon: <LineChart size={18} />,
   },
   {
+    title: "NFL Adaptive Forecasting",
+    category: "Research", featured: true,
+    blurb: "A walk-forward forecasting study asking whether dynamically updated player role, red-zone opportunity and expected passing volume improve weekly NFL forecasts under strict pregame-only validation. Includes two hypotheses that were tested and rejected, and a research paper documenting the method.",
+    highlight: "17,110 held-out player-games · 3.8% MAE reduction · 43 feature subsets evaluated",
+    stack: ["Python", "LightGBM", "Walk-forward validation", "Bootstrap inference"],
+    href: "https://github.com/crollila/nfl-adaptive-forecasting", icon: <LineChart size={18} />,
+  },
+  {
     title: "Fantasy Manager",
     category: "Applications", featured: true,
-    blurb: "A Windows application for fantasy football research and injury-aware lineup decisions. Combines ESPN league integration, local data storage, postgame reviews, and corrections tested on future games. Model probabilities remain experimental.",
-    highlight: "Windows v0.5.0 · Postgame reviews · Tested learning",
-    stack: ["Python", "FastAPI", "React", "SQLite"],
-    download: "https://github.com/crollila/fantasy-manager/releases/download/v0.5.0/Fantasy-Manager-Setup-0.5.0.exe",
+    blurb: "A Windows application for NFL and fantasy football forecasting. The prediction loop runs unattended: the game engine refits after each completed week, every player with an upcoming game is projected and archived before kickoff, and finished games are graded automatically and fed back into training. Model probabilities remain experimental.",
+    highlight: "Windows v0.6.3 · Automatic weekly retraining · Validated projection model",
+    stack: ["Python", "FastAPI", "React", "SQLite", "LightGBM"],
+    download: "https://github.com/crollila/fantasy-manager/releases/latest",
     href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
   },
   {
