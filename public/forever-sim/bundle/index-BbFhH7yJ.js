@@ -1,1 +1,0 @@
-import{S as e}from"./theme-BdmIJ4Dy.js";import{T as m}from"./preload-helper-Cqg-FkKE.js";import{S as r,P as a}from"./preset_utils-gacYGigu.js";import{R as n}from"./sim-BJzxIRbY.js";import"./metadata-BHp39TSL.js";import"./launched_sims-xSfY2mtv.js";const o=new r,t=new a(e.SpecRestorationShaman,o);o.raid.setPlayer(m.nextEventID(),0,t);new n(document.body,t);
