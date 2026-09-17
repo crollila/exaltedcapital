@@ -1,10 +1,23 @@
 (function() {
   "use strict";
   class WorkerInterface {
-    constructor(handlers) {
+    /** @param setForeverOverrides wasm export of Forever builds; returns a JSON string {ok, error?, summary}. */
+    constructor(handlers, setForeverOverrides2) {
       this._workerId = "";
       this.handlers = handlers;
       addEventListener("message", async ({ data }) => {
+        if (data.msg === "setForeverOverrides") {
+          let result;
+          try {
+            if (!setForeverOverrides2)
+              throw new Error("this engine cannot load live Forever data");
+            result = setForeverOverrides2(data.text);
+          } catch (error) {
+            result = JSON.stringify({ ok: false, error: error instanceof Error ? error.message : String(error) });
+          }
+          this.postMessage({ msg: "foreverOverrides", id: data.id, result });
+          return;
+        }
         const { id, msg, inputData } = data;
         if (msg === "setID") {
           this._workerId = id;
@@ -4740,7 +4753,7 @@
       raidSimRequestSplit,
       raidSimResultCombination,
       abortById
-    }).ready(true);
+    }, typeof setForeverOverrides === "function" ? setForeverOverrides : void 0).ready(true);
   };
   const go = new Go();
   let inst = null;
