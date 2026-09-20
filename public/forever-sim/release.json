@@ -5909,11 +5909,11 @@
     }
   ],
   "manifestSha256": "c5a8742a1f33415ab45df28f541e83bd51e7cb90c4e58b35f7e58809c9c5d11f",
-  "simulatorVersion": "0.1.0+forever-v2.ed035d8a1e4b",
-  "upstreamCommit": "f4294dd423bd",
-  "builtAt": "2026-09-17T10:26:33.182Z",
-  "databaseSha256": "8c225d2687320c690891f92d143dd6fefc30e641560b9513567d248641ee086f",
-  "engineSha256": "ed035d8a1e4b4bbf108fb10ecb6080b690b7c562b494e875541c2c2d4e64f687",
+  "simulatorVersion": "0.1.0+forever-v2.886f8aa8126a",
+  "upstreamCommit": "d3ecdf1629b5",
+  "builtAt": "2026-09-20T21:12:27.978Z",
+  "databaseSha256": "cfea424705e953c77fe5ebf5db51b7ddb53012429bad4e942dbee7cb85616134",
+  "engineSha256": "886f8aa8126a7ff5db0b264e6523c111ac564083134e850d4650ec4353c24724",
   "liveDataUrl": "https://api.exaltedcapital.com/forever/sim/",
-  "embeddedOverridesSha256": "70423be233ef6d6422a8f9d846055d2d50f65ddee6bb3b73e40b37589d985d2c"
+  "embeddedOverridesSha256": "a7d78ed7db570e78c902f0e7348cf08eafe5e41599b706c86c2d1123b236f2df"
 }
