@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
   "product": "Forever Simulator",
-  "foreverBuild": null,
-  "mechanicsUpdatedAt": "2026-09-13T07:59:08.480Z",
+  "foreverBuild": "1.60.1.69913",
+  "mechanicsUpdatedAt": "2026-09-21T03:21:18.727Z",
   "rulesetId": "forever-discovery-2026-09-13-v2",
-  "engineMode": "forever-discovery",
-  "notice": "Pre-beta discovery simulator. BEST_GUESS includes provisional mechanics and labeled predictions; STRICT skips predictions. This is not a validated beta-client ruleset.",
+  "engineMode": "forever-ruleset",
+  "notice": "Forever beta client data (build 1.60.1.69913): talents, spell ranks, combat ratings; items from foreverchanges.pro.",
   "mechanics": [
     {
       "id": "warrior.talent.improved-heroic-strike",
@@ -503,16 +503,6 @@
       "category": "talents",
       "confidence": "PROVISIONAL",
       "note": "Shield Bash interrupts for Classic six-second school lockout; talent adds50%/rank chance of a separate three-second silence. See Talents for rank-specific evidence and mode behavior.",
-      "evidence": [
-        "https://forevertalents.up.railway.app/"
-      ]
-    },
-    {
-      "id": "warrior.talent.vitality",
-      "label": "Vitality",
-      "category": "talents",
-      "confidence": "PREDICTED",
-      "note": "Existing Forever adapter or audited Classic bridge. See Talents for rank-specific evidence and mode behavior.",
       "evidence": [
         "https://forevertalents.up.railway.app/"
       ]
@@ -1838,8 +1828,8 @@
       ]
     },
     {
-      "id": "rogue.talent.restless-blades",
-      "label": "Restless Blades",
+      "id": "rogue.talent.flawless-execution",
+      "label": "Flawless Execution",
       "category": "talents",
       "confidence": "PROVISIONAL",
       "note": "Active combat effects, castable abilities, or encounter-control behavior. See Talents for rank-specific evidence and mode behavior.",
@@ -3809,7 +3799,7 @@
     },
     {
       "id": "warlock.talent.drain-hope",
-      "label": "Drain Hope",
+      "label": "Wrack",
       "category": "talents",
       "confidence": "PROVISIONAL",
       "note": "All selectable ranks; actual spell/stat/proc/target/aura behavior. See Talents for rank-specific evidence and mode behavior.",
@@ -5909,11 +5899,11 @@
     }
   ],
   "manifestSha256": "c5a8742a1f33415ab45df28f541e83bd51e7cb90c4e58b35f7e58809c9c5d11f",
-  "simulatorVersion": "0.1.0+forever-v2.886f8aa8126a",
-  "upstreamCommit": "a7036d9b978e",
-  "builtAt": "2026-09-20T21:39:57.564Z",
-  "databaseSha256": "cfea424705e953c77fe5ebf5db51b7ddb53012429bad4e942dbee7cb85616134",
-  "engineSha256": "886f8aa8126a7ff5db0b264e6523c111ac564083134e850d4650ec4353c24724",
+  "simulatorVersion": "0.1.0+forever-v2.fc9e9ba446b3",
+  "upstreamCommit": "abf34fb8e179",
+  "builtAt": "2026-09-21T03:21:18.746Z",
+  "databaseSha256": "df81f9f43c78cef6629b4c512e83ce9a56af4a8991e8bf168eb40118c710c0eb",
+  "engineSha256": "fc9e9ba446b331e28e2e0154bacb56c65f7f5ab679fc1909502c1e7c6e596e8a",
   "liveDataUrl": "https://api.exaltedcapital.com/forever/sim/",
-  "embeddedOverridesSha256": "a7d78ed7db570e78c902f0e7348cf08eafe5e41599b706c86c2d1123b236f2df"
+  "embeddedOverridesSha256": "95c9fee320a9cfcfc9f536a7eb32ae42aa1968fc3434b323a9ced1ba728f1b2d"
 }
