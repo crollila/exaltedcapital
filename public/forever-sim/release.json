@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "product": "Forever Simulator",
   "foreverBuild": "1.60.1.69913",
-  "mechanicsUpdatedAt": "2026-09-21T03:36:35.298Z",
+  "mechanicsUpdatedAt": "2026-09-21T04:41:30.878Z",
   "rulesetId": "forever-discovery-2026-09-13-v2",
   "engineMode": "forever-ruleset",
   "notice": "Forever beta client data (build 1.60.1.69913): talents, spell ranks, combat ratings; items from foreverchanges.pro.",
@@ -5899,11 +5899,11 @@
     }
   ],
   "manifestSha256": "c5a8742a1f33415ab45df28f541e83bd51e7cb90c4e58b35f7e58809c9c5d11f",
-  "simulatorVersion": "0.1.0+forever-v2.fa77cff66652",
-  "upstreamCommit": "79230a5f643d",
-  "builtAt": "2026-09-21T03:36:35.318Z",
-  "databaseSha256": "df81f9f43c78cef6629b4c512e83ce9a56af4a8991e8bf168eb40118c710c0eb",
-  "engineSha256": "fa77cff6665255c1dbd48f16000189f2f460f84b5f393a236ecbd9008581f483",
+  "simulatorVersion": "0.1.0+forever-v2.c5aee8d5fea7",
+  "upstreamCommit": "4604446a01a6",
+  "builtAt": "2026-09-21T04:41:30.902Z",
+  "databaseSha256": "38c545f32bf80146aa1ab924c3114c436769eeabbe55e8a93675a1b917a9ec03",
+  "engineSha256": "c5aee8d5fea7d417214a00146481069b18ed284c521ec619723928ff99b4038c",
   "liveDataUrl": "https://api.exaltedcapital.com/forever/sim/",
   "embeddedOverridesSha256": "95c9fee320a9cfcfc9f536a7eb32ae42aa1968fc3434b323a9ced1ba728f1b2d"
 }
