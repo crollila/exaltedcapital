@@ -4757,7 +4757,7 @@
   };
   const go = new Go();
   let inst = null;
-  const instantiate = fetch("lib.wasm.gz").then((r) => {
+  const instantiate = fetch(`lib.wasm.gz${self.location.search}`).then((r) => {
     if (!r.ok)
       throw new Error(`Forever engine download failed: ${r.status}`);
     return r.arrayBuffer();
