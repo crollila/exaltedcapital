@@ -25,32 +25,13 @@ export default function App() {
         <Work />
         <Experience />
         <Education />
+        <ExamStatus />
         <Beyond />
         <PlanShiftDownload />
-        <ForeverTools />
         <Contact />
       </main>
       <Footer />
     </div>
-  );
-}
-
-function ForeverTools() {
-  const button = "inline-flex items-center rounded-sm bg-emerald-950 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-900";
-  return (
-    <section id="forever" aria-labelledby="forever-title" className="border-t border-neutral-200">
-      <div className="mx-auto max-w-5xl px-4 py-16 md:px-6">
-        <h2 id="forever-title" className="text-2xl font-semibold">World of Warcraft: Forever</h2>
-        <div className="mt-6 flex flex-wrap items-start gap-3">
-          <a className={button} href="/forever-sim/">OPEN FOREVER SIM</a>
-          <a className={button} href="/downloads/ForeverLogger.zip" download>DOWNLOAD FOREVERLOGGER</a>
-          <div className="max-w-sm">
-            <a className={button} href="/downloads/StepSis-Log-Uploader.exe" download>DOWNLOAD STEPSIS LOG UPLOADER</a>
-            <p className="mt-3 text-sm text-neutral-600">Windows may display a SmartScreen warning because this beta uploader is currently unsigned.</p>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -97,7 +78,7 @@ function PlanShiftDownload() {
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const nav = [{ label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }, { label: "Forever Sim", href: "/forever-sim/" }];
+  const nav = [{ label: "Projects", href: "#work" }, { label: "Sanctum", href: LINKS.sanctum }, { label: "Experience", href: "#experience" }, { label: "Beyond the resume", href: "#beyond" }, { label: "Resume", href: LINKS.resume }];
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4 md:px-6">
@@ -170,7 +151,8 @@ function Hero() {
       <p className="text-sm text-neutral-600">Finance · Quantitative research · Software development</p>
       <h1>Case Ollila</h1>
       <p className="intro-summary">Finance graduate from Colorado State University, building financial models, market research systems, and practical software.</p>
-      <p className="mt-4 max-w-3xl leading-relaxed text-neutral-600">My work spans options pricing in q/kdb+, Python research pipelines, hedging backtests in R, and desktop applications. I am seeking analyst opportunities in global markets, sales &amp; trading, equity research, and quantitative research.</p>
+      <p className="mt-4 text-sm leading-relaxed text-neutral-700"><strong>SIE exam passed October 12, 2026.</strong> CFA® Program Level I candidate; exam scheduled February 17, 2027.</p>
+      <p className="mt-4 max-w-3xl leading-relaxed text-neutral-600">My work spans options pricing in q/kdb+, Python research pipelines, hedging backtests in R, and desktop applications. I am seeking opportunities in business analysis, quantitative research, data science, and applied AI engineering.</p>
       <div className="intro-links"><a href={LINKS.resume}>Resume</a><a href={LINKS.github}>GitHub</a><a href={LINKS.linkedin}>LinkedIn</a><a href={LINKS.email}>crollila@gmail.com</a></div>
       <p className="mt-6 text-sm text-neutral-600"><strong className="font-medium text-neutral-800">Technical skills:</strong> Python, Excel, R, q/kdb+, TypeScript, OCaml</p>
       </div>
@@ -194,6 +176,76 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
+  {
+    title: "Cross-Asset PCA Risk", category: "Research",
+    blurb: "Built principal component analysis from the linear algebra up for Treasury yields, equity sectors and credit spreads. Rolling alignment and bootstrap diagnostics track factor stability; portfolio attribution and stress scenarios use hypothetical books.",
+    highlight: "Historical market data \u00b7 Hypothetical portfolio risk",
+    stack: ["Python", "NumPy", "PCA", "Bootstrap"],
+    href: "https://github.com/crollila/pca-cross-asset-risk", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Fixed-Income Risk Engine", category: "Valuation",
+    blurb: "Prices Treasury and corporate bonds, bootstraps the Treasury curve, and measures duration, convexity, key-rate DV01 and CS01. Stress tests and constrained rebalancing run on a simulated portfolio; Treasury curve data come from FRED.",
+    highlight: "Historical Treasury data \u00b7 Simulated bond portfolio",
+    stack: ["Python", "SciPy", "FRED", "Linear programming"],
+    href: "https://github.com/crollila/fixed-income-risk-engine", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Agency MBS and CMO Analytics", category: "Valuation",
+    blurb: "Models mortgage amortization, rate-sensitive prepayments and sequential, PAC/support and IO/PO waterfalls. A Hull-White Monte Carlo engine evaluates option-adjusted spreads and rate stresses on synthetic mortgage pools.",
+    highlight: "Synthetic pools and curves \u00b7 Research valuation",
+    stack: ["Python", "Hull-White", "Monte Carlo", "Cash-flow modeling"],
+    href: "https://github.com/crollila/agency-mbs-cmo-analytics", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Counterparty Credit and XVA", category: "Valuation",
+    blurb: "Simulates swap and FX-forward exposure with Hull-White rates, netting and two-way collateral terms. Produces EE, PFE and CVA/DVA/FVA comparisons, including wrong-way-risk scenarios, for a fictional derivatives portfolio.",
+    highlight: "Simulated portfolio \u00b7 Educational exposure engine",
+    stack: ["Python", "Monte Carlo", "Counterparty risk"],
+    href: "https://github.com/crollila/xva-counterparty-credit", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Residential Credit NPL and RPL Engine", category: "Valuation",
+    blurb: "Values synthetic residential mortgage pools through loan-level state transitions and probability-weighted discounted cash flows. Includes bid sensitivities, diligence checks and final-tape and boarding reconciliations.",
+    highlight: "Synthetic loans \u00b7 Illustrative transition assumptions",
+    stack: ["Python", "DCF", "Scenario analysis", "Reconciliation"],
+    href: "https://github.com/crollila/residential-credit-npl-engine", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Funding, Swaps and Balance Sheet", category: "Valuation",
+    blurb: "Implements repo, reverse repo, SOFR swap and equity total-return-swap pricing. Uses SciPy linear programming for balance-sheet allocation, with pre-trade review gates and stress scenarios on a simulated financing book.",
+    highlight: "Synthetic curves and financing book",
+    stack: ["Python", "SciPy", "SOFR", "Linear programming"],
+    href: "https://github.com/crollila/funding-swaps-balance-sheet", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Securities Lending and Equity Finance", category: "Research",
+    blurb: "Simulates agency securities lending with fees, rebates, collateral, margin calls, recalls and buy-ins. Compares allocation policies and short-squeeze stress tradeoffs across paired synthetic market paths.",
+    highlight: "Synthetic securities, counterparties and market paths",
+    stack: ["Python", "SciPy", "Simulation", "Allocation"],
+    href: "https://github.com/crollila/securities-lending-equity-finance", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Execution Microstructure Lab", category: "Research",
+    blurb: "Builds seeded order books with queue tracking and compares TWAP, VWAP, participation and passive execution. Decomposes simulated implementation shortfall, spread costs, impact and adverse selection across liquidity regimes.",
+    highlight: "Synthetic order flow \u00b7 Simulated execution only",
+    stack: ["Python", "Order-book simulation", "TCA"],
+    href: "https://github.com/crollila/execution-microstructure-lab", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Crypto Execution Lab", category: "Research",
+    blurb: "Collects Coinbase BTC/ETH public REST and WebSocket market data with gap resynchronization and backoff. Replays captured order books through queue, latency and fee-aware execution models; every fill is simulated.",
+    highlight: "Public market data \u00b7 Simulated fills",
+    stack: ["Python", "WebSocket", "REST", "Market-data replay"],
+    href: "https://github.com/crollila/crypto-execution-lab", icon: <LineChart size={18} />,
+  },
+  {
+    title: "Trade Lifecycle Reconciliation", category: "Applications",
+    blurb: "Normalizes FIX-style, CSV and JSON feeds in Python and DuckDB. Reconciles trades, fees, settlement, positions and cash, with exception classification tested against injected incidents in synthetic order streams.",
+    highlight: "Synthetic trade data \u00b7 Injected test incidents",
+    stack: ["Python", "DuckDB", "SQL", "Reconciliation"],
+    href: "https://github.com/crollila/trade-lifecycle-reconciliation", icon: <LineChart size={18} />,
+  },
   {
     title: "PlanShift", category: "Applications",
     blurb: "Developed for KW Capital Advisors / Ameriprise Financial during my private wealth internship. A Windows application that brings together public workforce notices, retirement-plan research, and prospect tracking, with local record storage and Excel exports for advisor review.",
@@ -221,16 +273,16 @@ const PROJECTS: Project[] = [
     title: "Fantasy Manager",
     category: "Applications", featured: true,
     blurb: "A Windows application for NFL and fantasy football forecasting. The prediction loop runs unattended: the game engine refits after each completed week, every player with an upcoming game is projected and archived before kickoff, and finished games are graded automatically and fed back into training. Model probabilities remain experimental.",
-    highlight: "Windows v0.6.3 · Automatic weekly retraining · Validated projection model",
+    highlight: "Windows v0.7.0 · Weekly forecasts and outcome reviews · Historical validation",
     stack: ["Python", "FastAPI", "React", "SQLite", "LightGBM"],
     download: "https://github.com/crollila/fantasy-manager/releases/latest",
     href: "https://github.com/crollila/fantasy-manager", icon: <Boxes size={18} />,
   },
   {
-    title: "Sanctum — Autonomous Research Firm",
+    title: "Sanctum — Independent Paper Research",
     blurb:
-      "A quant research firm that runs itself. It ingests point-in-time market, macro, regulatory and physical-sensor data, searches for lagged relationships, and has AI agents propose an economic mechanism — but the agents are never the signal. Every rule is pre-registered before a single backtest, then judged by a ten-stage deterministic gauntlet: deflated Sharpe against every trial ever run, cost and regime stress, null controls, and a sealed holdout the evaluator has no permission to read. Survivors accumulate forward evidence before touching a paper broker. Failures are kept, never deleted. The public floor shows the whole process as it happens.",
-    highlight: "Runs unattended · Every failed strategy kept · Simulated money only",
+      "An independent quantitative research platform that separates LLM hypothesis generation from deterministic validation and risk controls. Point-in-time data, purged cross-validation, walk-forward testing and experiment logs support review before Alpaca paper execution. Research outcomes and failed trials remain visible; this is independent project work using simulated money.",
+    highlight: "Independent research · Auditable experiments · Paper trading only",
     since: "Since Aug 2026",
     stack: ["Python", "FastAPI", "Postgres", "React", "LLM agents"],
     href: LINKS.sanctum,
@@ -271,7 +323,7 @@ const PROJECTS: Project[] = [
     title: "Implied Volatility Surface with SVI",
     blurb:
       "Builds an implied volatility surface from live equity-index options, calibrating raw SVI per expiry slice with full static-arbitrage diagnostics. Black-Scholes, the implied-vol inversion, and the SVI fit are all written from scratch rather than pulled from a library.",
-    highlight: "Median fit error of 15 vol bps on SPY",
+    highlight: "15.2 vol-bp median fit error · August 10, 2026 SPY sample",
     since: "Since Jun 2026",
     stack: ["Python", "NumPy", "SciPy"],
     href: "https://github.com/crollila/implied-vol-surface-svi",
@@ -280,7 +332,7 @@ const PROJECTS: Project[] = [
   {
     title: "Monte Carlo Option Pricer in q/kdb+",
     blurb:
-      "European, Asian, and knock-out barrier options priced in idiomatic vectorized q, where no loop ever touches a path. Validated against closed-form Black-Scholes, with antithetic variance reduction and a convergence and throughput study.",
+      "European, Asian, and knock-out barrier options priced with vectorized Monte Carlo in q/kdb+. Validated against closed-form Black-Scholes, with antithetic variance reduction and a convergence and throughput study.",
     highlight: "Vectorized q implementation with convergence and throughput analysis",
     since: "Since Apr 2026",
     stack: ["q / kdb+", "Monte Carlo"],
@@ -329,7 +381,7 @@ const PROJECTS: Project[] = [
   {
     title: "News Sentiment Trading Algorithm",
     blurb:
-      "An event-driven trading system in Node.js that scores breaking Benzinga headlines through a tailored GPT model, then routes buy, sell, short, and cover decisions through Alpaca, gated by liquidity filters, position sizing, drawdown stops, and fail-safes.",
+      "An event-driven trading system in Node.js that scores breaking Benzinga headlines through a tailored GPT model, then routes paper-trading decisions through Alpaca, gated by liquidity filters, position sizing, drawdown stops, and fail-safes.",
     highlight: "Event-driven architecture with execution risk controls",
     since: "Since Jan 2025",
     stack: ["Node.js", "OpenAI", "Alpaca", "Benzinga"],
@@ -357,7 +409,7 @@ const PROJECTS: Project[] = [
   {
     title: "AlpacaBot",
     blurb:
-      "Where this all started. Automated equity-trading software wiring trading signals into Alpaca for programmatic execution, covering signal processing, order generation, position management, monitoring, and the first risk controls I ever had to design myself.",
+      "Where this all started. Automated equity-trading software wiring trading signals into Alpaca for paper execution, covering signal processing, order generation, position management, monitoring, and the first risk controls I ever had to design myself.",
     highlight: "The earliest of the trading systems, and the start of the timeline",
     since: "Since May 2024",
     stack: ["Python", "Alpaca"],
@@ -481,6 +533,24 @@ function Role({ title, org, when, points }: {
 
 /* -------------------------------- education -------------------------------- */
 
+function ExamStatus() {
+  return (
+    <Section id="exams" eyebrow="Professional development" title="Exams and current status">
+      <div className="space-y-6">
+        <div className="education-entry">
+          <h3 className="text-lg font-medium">FINRA Securities Industry Essentials (SIE)</h3>
+          <p className="mt-2 text-neutral-700">Passed October 12, 2026.</p>
+          <p className="mt-2 text-sm text-neutral-600">The SIE is an industry knowledge exam; passing it does not by itself confer securities registration.</p>
+        </div>
+        <div className="education-entry">
+          <h3 className="text-lg font-medium">CFA® Program Level I candidate</h3>
+          <p className="mt-2 text-neutral-700">Registered; exam scheduled February 17, 2027.</p>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 function Education() {
   const groups = [
     {
@@ -590,11 +660,6 @@ function Beyond() {
 
         <YouTubeFeature />
 
-        <StoryCard
-          icon={<Users size={18} />}
-          title="World of Warcraft — Leading Ashes"
-          body={<AshesLeadership />}
-        />
 
         <StoryCard
           icon={<HeartPulse size={18} />}
@@ -627,8 +692,8 @@ function Beyond() {
           body={
             <>
               <p>
-                Before Ashes there was a pattern: top-rank Vainglorious in Vainglory, top six in Clash Royale, one of
-                the first Town Hall 9 Champions in my Clash of Clans circle, Scarab Lord in WoW. I have led the guild
+                My competitive interests extend beyond Fortnite: top-rank Vainglorious in Vainglory, top six in Clash Royale, one of
+                the first Town Hall 9 Champions in my Clash of Clans circle. I have led the team
                 or the clan in essentially every game I have played seriously, including a Discord community of 12,000
                 members.
               </p>
@@ -663,30 +728,6 @@ function YouTubeFeature() {
   );
 }
 
-function AshesLeadership() {
-  return (
-    <div>
-      <h4 className="font-semibold">Founder &amp; Guild Leader, Ashes</h4>
-      <p className="mt-2 text-sm text-neutral-600">2021–2023</p>
-      <p className="mt-2 text-sm text-neutral-600">World of Warcraft Classic · Season of Mastery &amp; Season of Discovery</p>
-      <p className="mt-4 leading-relaxed text-neutral-600">Founded and led a community of more than 500 players, coordinating recruitment, team development, and competitive performance across multiple raid teams.</p>
-      <ul className="leadership-points">
-        <li>Taught advanced raid strategies and adapted emerging tactics into practical assignments, preparation guides, and coaching for individual players and team leaders.</li>
-        <li>Used spreadsheets, combat logs, and recorded gameplay (VOD) reviews to organize rosters, evaluate performance, diagnose mistakes, and track improvement.</li>
-        <li>Maintained morale through demanding progression, repeated setbacks, and lengthy preparation and resource-gathering sessions; kept volunteer teams motivated through clear goals, constructive feedback, and recognition.</li>
-        <li>Managed scheduling, recruitment, conflict resolution, and community expectations across teams, while using YouTube videos and the Ashes channel to promote achievements and attract players.</li>
-      </ul>
-      <h4 className="mt-6 text-sm font-semibold">Selected competitive results</h4>
-      <ul className="leadership-points">
-        <li><strong>Season of Mastery:</strong> World-first AQ40 Hard Mode 4 clear; world #1 All-Star guild rankings in AQ40 and Naxxramas; more than 300 top-rated individual boss performances (100 parses).</li>
-        <li><strong>Season of Discovery:</strong> Sunken Temple clear in 30:05, ranked #1 server Alliance and #15 worldwide; seven teams completed the raid.</li>
-        <li><strong>Team development:</strong> Scaled to 16 Blackfathom Deeps raid teams during Season of Discovery, with eight recording clears under 20 minutes.</li>
-      </ul>
-      <div className="intro-links text-sm"><a href="https://vanilla.warcraftlogs.com/guild/id/655060">Season of Mastery records</a><a href="https://sod.warcraftlogs.com/guild/us/crusader-strike/ashes">Season of Discovery records</a><a href="https://youtu.be/YbYxGtJGQa8">Sunken Temple run</a><a href="https://www.youtube.com/@ashes42069">Ashes YouTube</a></div>
-    </div>
-  );
-}
-
 function StoryCard({ id, title, lede, body }: { id?: string; icon: React.ReactNode; title: string; lede?: string; body: React.ReactNode }) {
   return (
     <div id={id} className="rounded-none border border-neutral-200 bg-white p-6 md:p-8">
@@ -711,9 +752,9 @@ function Contact() {
             Contact
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
-            I graduated in August 2026 and am available now, looking for analyst roles in global markets, sales &amp;
-            trading, equity research, private wealth, or quant-adjacent research. Open to New York, Denver, Boulder,
-            and Chicago, and happy to relocate for the right desk.
+            I graduated in August 2026 and am available now for business analysis, finance,
+            quantitative research, data science, and applied AI engineering opportunities.
+            Open to Boulder, New York, Houston, and relocation for the right role.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
