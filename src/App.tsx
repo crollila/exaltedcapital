@@ -101,6 +101,7 @@ function Footer() {
           <a className="transition-colors hover:text-neutral-800" href={LINKS.linkedin}>LinkedIn</a>
           <a className="transition-colors hover:text-neutral-800" href={LINKS.youtube}>YouTube</a>
           <a className="transition-colors hover:text-neutral-800" href={LINKS.email}>Email</a>
+          <a className="transition-colors hover:text-neutral-800" href="https://jobs.exaltedcapital.com" rel="nofollow">Jobs dashboard</a>
         </div>
       </div>
     </footer>
